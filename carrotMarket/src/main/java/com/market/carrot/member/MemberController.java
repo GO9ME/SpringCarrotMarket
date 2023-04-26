@@ -14,7 +14,7 @@ public class MemberController {
 	@RequestMapping("/member/signup1")
 	public ModelAndView signUpPage1() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/member/mySignUpForm1");
+		mav.setViewName("member/mySignUpForm1");
 		
 		return mav;
 	}

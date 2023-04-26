@@ -4,10 +4,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /*
-	»óÇ° ¸®½ºÆ® Á¾·ùº°
-	ÆÇ¸Å ¸®½ºÆ®
-	±¸¸Å ¸®½ºÆ® 
-	»óÇ° »ó¼¼º¸±â
+	ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® 
+	ï¿½ï¿½Ç° ï¿½ó¼¼ºï¿½ï¿½ï¿½
 */
 
 @Controller
@@ -15,7 +15,8 @@ public class ListController {
 	@RequestMapping("/product/detail")
 	public ModelAndView detailPage() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/product/detailPage");
+		mav.setViewName("product/detailPage");
+
 		
 		return mav;
 	}

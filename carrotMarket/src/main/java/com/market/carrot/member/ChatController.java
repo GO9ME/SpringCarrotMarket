@@ -11,7 +11,7 @@ public class ChatController {
 	@RequestMapping("/member/chat")
 	public ModelAndView chatPage() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/chat/chat");
+		mav.setViewName("chat/chat");
 		
 		return mav;
 	}

@@ -5,14 +5,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 /*
 
-	»óÇ° µî·Ï / ¼öÁ¤ / »èÁ¦ 
+	ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ / ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½ï¿½ï¿½ 
 */
 @Controller
 public class ProductController {
 	@RequestMapping("/product/register")
 	public ModelAndView registerPage() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/product/register");
+		mav.setViewName("product/register");
 		
 		return mav;
 	}
