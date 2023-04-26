@@ -1,0 +1,99 @@
+.product-register{
+	margin : 20px;
+}
+
+.right-arrow-icon {
+	float: right;
+	margin-top: 4px;
+}
+
+.list-group-item-action:hover {
+	background-color: #ff6f0f;
+	color: white;
+}
+
+#send {
+	background-color: #ff6f0f;
+	border: 1px solid #ff6f0f;
+	color: white;
+}
+
+#title {
+	margin-bottom: 9px;
+}
+
+.category-btn {
+	border: 1px solid #ced4da;
+	background-color: white;
+	color: #6c757d;
+	font-size: 16px;
+	padding: 7px 10px;
+}
+
+.category-btn:hover {
+	border: 1px solid #ff6f0f;
+	background-color: #ff6f0f;
+	color: white;
+}
+
+.col-6 {
+	display: flex;
+}
+
+.dropzone, .thumbnail {
+	flex-basis: 50%;
+}
+
+.thumbnail {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.dropzone {
+	border: 2px dashed #ccc;
+	padding: 25px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.dropzone p {
+	font-size: 18px;
+}
+
+.inputfile {
+	display: none;
+}
+
+label {
+	border: 2px solid #ccc;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.thumb {
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	overflow: hidden;
+	position: relative;
+}
+
+.thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.thumb .remove {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	background: #ccc;
+	padding: 3px 5px;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 14px;
+	color: #fff;
+}
