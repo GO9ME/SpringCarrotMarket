@@ -179,16 +179,22 @@ header .header__inner .buttons-menu .btn-click {
 	color: #ff8a3d;
 }
 
-header .header__inner .buttons-chat__button {
+header .header__inner .buttons .buttons-chat,.buttons-login {
 	padding: 10px;
 	font-size: 1.1rem;
+}
+
+
+
+header .header__inner .buttons-chat__button {
+	padding: 10px;
+	
 	border: 1px solid #cfd1d3;
 	border-radius: 5px;
 }
 
 header .header__inner .buttons-login {
 	padding: 10px;
-	font-size: 1.1rem;
 	border: 1px solid #cfd1d3;
 	border-radius: 5px;
 }

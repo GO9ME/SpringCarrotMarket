@@ -21,19 +21,19 @@
 					<p>가깝고 따뜻한 당신의 근처를 만들어요.</p>
 				</article>
 				<div class="item-box__img top--img">
-					<img src="/carrotMarket/images/phono-image-1.png"
+					<img src="/carrot/images/phono-image-1.png"
 						alt="phone-image-1" class="desktop" /> <img
-						src="/carrotMarket/images/phono-image-1.png"
+						src="/carrot/images/phono-image-1.png"
 						alt="phone-image-1" class="mobile" />
 				</div>
-			</div>
+			</div>	
 		</div>
 
 		<!-- main page 2 우리동네 중고 직거래 마켓-->
 		<div class="home-main__item">
 			<div class="item-box">
 				<div class="item-box__img">
-					<img src="/carrotMarket/images/phono-image-2.png"
+					<img src="/carrot/images/phono-image-2.png"
 						alt="phono-image-2" />
 				</div>
 				<div class="item-box__container">
@@ -63,7 +63,7 @@
 					</article>
 					<div class="item-box__list">
 						<div class="item-box__item">
-							<img src="/carrotMarket/images/icon-story-1.svg"
+							<img src="/carrot/images/icon-story-1.svg"
 								alt="icon-story-1" />
 							<h3>우리동네질문</h3>
 							<p>
@@ -71,7 +71,7 @@
 							</p>
 						</div>
 						<div class="item-box__item">
-							<img src="/carrotMarket/images/icon-story-2.svg"
+							<img src="/carrot/images/icon-story-2.svg"
 								alt="icon-story-2" />
 							<h3>동네분실센터</h3>
 							<p>
@@ -79,7 +79,7 @@
 							</p>
 						</div>
 						<div class="item-box__item">
-							<img src="/carrotMarket/images/icon-story-3.svg"
+							<img src="/carrot/images/icon-story-3.svg"
 								alt="icon-story-3" />
 							<h3>우리동네질문</h3>
 							<p>
@@ -89,7 +89,7 @@
 					</div>
 				</div>
 				<div class="item-box__img">
-					<img src="/carrotMarket/images/phono-image-3.png"
+					<img src="/carrot/images/phono-image-3.png"
 						alt="phono-image-3" />
 				</div>
 			</div>
@@ -99,7 +99,7 @@
 		<div class="home-main__item">
 			<div class="item-box">
 				<div class="item-box__img">
-					<img src="/carrotMarket/images/phono-image-4.png"
+					<img src="/carrot/images/phono-image-4.png"
 						alt="phono-image-4" />
 				</div>
 				<div class="item-box__container">
@@ -126,7 +126,7 @@
 		<div class="home-popular__list">
 			<div class="popular-list">
 				<div class="popular-list__item">
-					<img src="/carrotMarket/images/popular-sale-1.jpeg"
+					<img src="/carrot/images/popular-sale-1.jpeg"
 						alt="popular-sale-1" class="popular-list__img" />
 					<p class="popular-list__title">티티카카 자전거</p>
 					<p class="bold-text">20,000원</p>
@@ -136,7 +136,7 @@
 					</div>
 				</div>
 				<div class="popular-list__item">
-					<img src="/carrotMarket/images/popular-sale-2.jpeg"
+					<img src="/carrot/images/popular-sale-2.jpeg"
 						alt="popular-sale-2" class="popular-list__img" />
 					<p class="popular-list__title">포켓몬빵 팔아요</p>
 					<p class="bold-text">2,000원</p>
@@ -146,7 +146,7 @@
 					</div>
 				</div>
 				<div class="popular-list__item">
-					<img src="/carrotMarket/images/popular-sale-3.jpeg"
+					<img src="/carrot/images/popular-sale-3.jpeg"
 						alt="popular-sale-3" class="popular-list__img" />
 					<p class="popular-list__title">필요하신분 가져가세요~</p>
 					<p class="bold-text">-</p>
@@ -156,7 +156,7 @@
 					</div>
 				</div>
 				<div class="popular-list__item">
-					<img src="/carrotMarket/images/popular-sale-4.jpeg"
+					<img src="/carrot/images/popular-sale-4.jpeg"
 						alt="popular-sale-4" class="popular-list__img" />
 					<p class="popular-list__title">자전거</p>
 					<p class="bold-text">30,000원</p>
@@ -166,7 +166,7 @@
 					</div>
 				</div>
 				<div class="popular-list__item">
-					<img src="/carrotMarket/images/popular-sale-5.jpeg"
+					<img src="/carrot/images/popular-sale-5.jpeg"
 						alt="popular-sale-5" class="popular-list__img" />
 					<p class="popular-list__title">냉장고 올립니다.</p>
 					<p class="bold-text">100,000원</p>
@@ -176,7 +176,7 @@
 					</div>
 				</div>
 				<div class="popular-list__item">
-					<img src="/carrotMarket/images/popular-sale-6.jpeg"
+					<img src="/carrot/images/popular-sale-6.jpeg"
 						alt="popular-sale-6" class="popular-list__img" />
 					<p class="popular-list__title">컴팩트한 전자렌지에욤</p>
 					<p class="bold-text">15,000원</p>
@@ -186,7 +186,7 @@
 					</div>
 				</div>
 				<div class="popular-list__item">
-					<img src="/carrotMarket/images/popular-sale-7.jpeg"
+					<img src="/carrot/images/popular-sale-7.jpeg"
 						alt="popular-sale-7" class="popular-list__img" />
 					<p class="popular-list__title">제습기</p>
 					<p class="bold-text">40,000원</p>
@@ -196,7 +196,7 @@
 					</div>
 				</div>
 				<div class="popular-list__item">
-					<img src="/carrotMarket/images/popular-sale-8.jpeg"
+					<img src="/carrot/images/popular-sale-8.jpeg"
 						alt="popular-sale-8" class="popular-list__img" />
 					<p class="popular-list__title">아시아 관리기 880 S</p>
 					<p class="bold-text">1,000,000원</p>

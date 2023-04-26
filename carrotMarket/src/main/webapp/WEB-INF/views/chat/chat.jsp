@@ -27,15 +27,15 @@
 
 <jsp:include page="../common/header.jsp"></jsp:include>
 
-<link rel="stylesheet" href="/carrotMarket/common/css/style_chat.css">
-<script type="text/javascript" src="/carrotMarket/common/js/chat.js"></script>
+<link rel="stylesheet" href="/carrot/common/css/style_chat.css">
+<script type="text/javascript" src="/carrot/common/js/chat.js"></script>
 
 </head>
 <body>
 
 
-	<section class="chat-section">
-		<div class="container-fluid h-100">
+	<section>
+		<div class="container-fluid h-100 chat-section">
 			<div class="row justify-content-center h-100">
 
 				<!-- 채팅 구역 지워야 함 나중에 채팅창 데이터 뿌릴 곳 -->

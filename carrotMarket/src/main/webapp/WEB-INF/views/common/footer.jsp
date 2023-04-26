@@ -11,7 +11,7 @@
 	<footer class="footer background-dark-gray">
 		<nav class="footer-nav">
 			<div class="footer-nav__img">
-				<img src="/carrotMarket/images/logo-basic.svg"
+				<img src="/carrot/images/logo-basic.svg"
 					alt="logo-basic" />
 			</div>
 			<ul class="footer-nav__item">
@@ -57,17 +57,17 @@
 			</div>
 			<div class="footer-info__list">
 				<div class="info-list">
-					<img src="/carrotMarket/images/icon-facebook.svg"
+					<img src="/carrot/images/icon-facebook.svg"
 						alt="icon-facebook" class="info-list__item"
 						onclick="javascript:location.href='https://www.facebook.com/daangn';" /> <img
-						src="/carrotMarket/images/icon-instagram.svg"
+						src="/carrot/images/icon-instagram.svg"
 						alt="icon-instagram" class="info-list__item"
 						onclick="javascript:location.href='https://www.instagram.com/daangnmarket/';"/> <img
-						src="/carrotMarket/images/icon-blog.svg" alt="icon-blog"
+						src="/carrot/images/icon-blog.svg" alt="icon-blog"
 						class="info-list__item"
 						onclick="javascript:location.href='https://www.youtube.com/channel/UC8tsBsQBuF7QybxgLmStihA';" //>
 					<div class="info-list__item--country">
-						<img src="/carrotMarket/images/icon-global.png"
+						<img src="/carrot/images/icon-global.png"
 							alt="icon-global" /> <span>한국</span>
 					</div>
 				</div>

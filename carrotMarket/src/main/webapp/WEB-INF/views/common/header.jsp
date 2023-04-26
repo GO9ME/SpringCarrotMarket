@@ -19,9 +19,9 @@
 <script src="https://kit.fontawesome.com/700619e3a2.js"
 	crossorigin="anonymous"></script>
 
-<link rel="daangn icon" href="/carrotMarket/images/logo.ico" />
-<link rel="stylesheet" href="/carrotMarket/css/reset.css" />
-<link rel="stylesheet" href="/carrotMarket/css/style.css" />
+<link rel="daangn icon" href="/carrot/images/logo.ico" />
+<link rel="stylesheet" href="/carrot/common/css/reset.css" />
+<link rel="stylesheet" href="/carrot/common/css/style.css" />
 
 <title>당신 근처의 당근마켓</title>
 </head>
@@ -29,8 +29,8 @@
 	<!-- header part -->
 	<header>
 		<div class="header__inner">
-			<a href="/carrotMarket/view/index.jsp"><img
-				src="/carrotMarket/images/logo-basic.svg" alt="daangn-logo" /></a>
+			<a href="/carrot/main"><img src="/carrot/images/logo-basic.svg"
+				alt="daangn-logo" /></a>
 			<div class="buttons">
 
 				<div class="buttons-menu">
@@ -39,7 +39,9 @@
 					<div id="gnb" class="gnb-wrap">
 						<div class="gnb-inner">
 							<ul>
-								<li class="active"><a href="/carrotMarket/view/product/sellList.jsp"><button class="buttons-menu__list">상품목록</button></a></li>
+								<li class="active"><a
+									href="/carrot/view/product/sellList.jsp"><button
+											class="buttons-menu__list">상품목록</button></a></li>
 								<li><a href=""><button class="buttons-menu__listk">인기상품</button></a></li>
 							</ul>
 						</div>
@@ -47,7 +49,7 @@
 				</div>
 				<div class="buttons-menu">
 					<button class="buttons-menu__store"
-						onclick="location.href='/carrotMarket/view/product/register.jsp'">상품등록</button>
+						onclick="location.href='/carrot/product/register'">상품등록</button>
 				</div>
 
 
@@ -56,19 +58,20 @@
 				<input type="text" name="header-search-input" class="search__input"
 					placeholder="동네 이름, 물품명 등을 검색해보세요!" />
 				<button class="search__button">
-					<img src="/carrotMarket/images/search-icon.svg"
-						alt="daangn-search" />
+					<img src="/carrot/images/search-icon.svg" alt="daangn-search" />
 				</button>
 			</div>
 			<div class="buttons">
 				<div class="buttons-chat">
 					<button class="buttons-chat__button"
-						onclick="location.href='/carrotMarket/view/chat/chat.jsp'">
-						당근채팅</button>
+						onclick="location.href='/carrot/member/chat'">당근채팅</button>
 				</div>
 				<!-- 로그아웃 시  -->
 				<div class="buttons-login">
-					<button class="buttons-login__button">로그인</button>
+
+					<button type="button" class="buttons-login__button"
+						data-toggle="modal" data-target="#exampleModal"
+						data-whatever="@mdo">로그인</button>
 				</div>
 				<!-- 로그인 시  -->
 				<div class="buttons-logout">
@@ -76,16 +79,71 @@
 				</div>
 			</div>
 			<div class="tablet-buttons">
-				<img src="/carrotMarket/images/search-icon-orange.svg"
+				<img src="/carrot/images/search-icon-orange.svg"
 					alt="daangn-search-orange" />
 			</div>
 		</div>
 
 
+
 	</header>
+
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content card-body p-5">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Login</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body form-outline mb-4">
+					<form>
+						<div class="form-group">
+							<label class="form-label" for="typeEmailX-2">아이디</label> <input
+								type="email" id="typeEmailX-2"
+								class="form-control form-control-lg" />
+						</div>
+						<div class="form-group">
+							<label class="form-label" for="typePasswordX-2">비밀번호</label> <input
+								type="password" id="typePasswordX-2"
+								class="form-control form-control-lg" />
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-lg btn-block"
+						style="background-color: #00b493; color: #fff;" type="submit">로그인</button>
+					<hr class="my-4">
+					<button class="btn btn-lg btn-block btn-primary"
+						style="background-color: #ffaf82; border: #ffaf82; color: black;"
+						type="submit" onclick="location.href='/carrot/member/signup1'">회원가입</button>
+					<button class="btn btn-lg btn-block btn-primary mb-2"
+						style="background-color: #ffaf82; border: #ffaf82; color: black;"
+						type="submit">아이디 / 비밀번호 찾기</button>
+
+					<!-- <button type="button" class="btn btn-primary">Send message</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$('#exampleModal').on('show.bs.modal', function(event) {
+			alert('작동');
+			var button = $(event.relatedTarget) // Button that triggered the modal
+			var recipient = button.data('whatever') // Extract info from data-* attributes
+			// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+			// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+			var modal = $(this)
+			modal.find('.modal-title').text('New message to ' + recipient)
+			modal.find('.modal-body input').val(recipient)
+		})
+	</script>
 
 
 
 </body>
-<script src="/carrotMarket/common/js/main.js"></script>
+<script src="/carrot/common/js/main.js"></script>
 </html>
