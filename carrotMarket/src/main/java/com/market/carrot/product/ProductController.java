@@ -5,7 +5,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /*
 
-	��ǰ ��� / ���� / ���� 
+	상품등록/수정/삭제 
 */
 @Controller
 public class ProductController {

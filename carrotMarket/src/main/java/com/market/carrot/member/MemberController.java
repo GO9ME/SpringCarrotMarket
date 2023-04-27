@@ -5,9 +5,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 /*
 
-	ȸ������
-	ȸ������
-	����������
+	회원가입
+	회원수정
+	마이페이지
 */
 @Controller
 public class MemberController {
