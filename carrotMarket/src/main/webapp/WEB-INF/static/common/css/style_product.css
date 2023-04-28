@@ -97,3 +97,30 @@ label {
 	font-size: 14px;
 	color: #fff;
 }
+.search {
+	display: inline-flex;
+	flex-direction: row-reverse;
+	height: 33px;
+	background: #fff;
+	border: 1px solid #cfd3f6;
+	border-radius: 17px;
+	overflow: hidden;
+}
+
+.search input {
+	border: 0;
+}
+
+.search .ser-txt {
+	height: 100%;
+}
+.search .btn-ser {
+	flex-shrink: 0;
+	width: 40px;
+	height: 100%;
+	text-indent: -999px;
+	overflow: hidden;
+	background: #fff
+		url(http://yellowpang.review/IWP/ITSM/user/images/itsm_icon/ic_search.png)
+		no-repeat center center;
+}
