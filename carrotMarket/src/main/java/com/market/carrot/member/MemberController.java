@@ -39,5 +39,12 @@ public class MemberController {
 		
 		return mav;
 	}
+	@RequestMapping("/member/mypage")
+	public ModelAndView mypage() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/mypage");
+		
+		return mav;
+	}
 }
 
