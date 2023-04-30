@@ -1,16 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-<!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <jsp:include page="../common/header.jsp"></jsp:include>
 <title>프로필 수정</title>
 
+<link rel="stylesheet" href="/carrot/common/css/style_signUpForm.css">
 <style type="text/css">
+.container {
+	display: inline-flex;
+	margin-top: 50px;
+	position: absolute;
+	left: 10%;
+	transform: transitionX(-10%);
+}
+
+#profile_side {
+	text-align: center;
+}
+
 .profile-user {
 	width: 150px;
 	height: 150px;
@@ -25,74 +37,101 @@
 	height: 100%;
 	object-fit: cover;
 }
-#profile_side{
-	margin: 50px;
-}
 </style>
 </head>
 <body>
-	<div class="card border-dark mb-3" id="profile_side"
-		style="max-width: 18rem; height: 100%;">
-		<div class="card-header">
-			<h5 class="card-title">프로필</h5>
+	<div class="container">
+		<div class="card border-dark mb-3" id="profile_side"
+			style="max-width: 18rem; height: 100%;">
+			<div class="card-header">
+				<h5 class="card-title">프로필</h5>
+			</div>
+			<div class="card-body text-dark">
+
+				<div class="profile-user">
+					<img alt="profile_img" src="../images/myprofile.jpg"
+						class="profile-user-img">
+				</div>
+				<!-- 아이디 -->
+				<div id="id">아이디 호출</div>
+				<hr />
+				<!-- 닉네임 -->
+				<div class="input-group  input-group-sm mb-3">
+					<input type="text" readonly class="form-control-plaintext"
+						id="staticEmail" value="닉네임#">
+					<div class="input-group-append">
+						<button type="button" class="btn btn-warning btn-sm"
+							data-toggle="modal" data-target="#nicknameModal">수정</button>
+					</div>
+				</div>
+				<!-- 비밀번호 -->
+				<div class="input-group  input-group-sm mb-3">
+					<input type="text" readonly class="form-control-plaintext"
+						id="staticEmail" value="비밀번호">
+					<div class="input-group-append">
+						<button type="button" class="btn btn-warning btn-sm"
+							data-toggle="modal" data-target="#passModal">수정</button>
+					</div>
+				</div>
+				<!-- 전화번호 -->
+				<div class="input-group  input-group-sm mb-3">
+					<input type="text" readonly class="form-control-plaintext"
+						id="staticEmail" value="전화번호">
+					<div class="input-group-append">
+						<button type="button" class="btn btn-warning btn-sm"
+							data-toggle="modal" data-target="#phoneModal">수정</button>
+					</div>
+				</div>
+				<!-- 이메일 -->
+				<div class="input-group  input-group-sm mb-3">
+					<input type="text" readonly class="form-control-plaintext"
+						id="staticEmail" value="이메일">
+					<div class="input-group-append">
+						<button type="button" class="btn btn-warning btn-sm"
+							data-toggle="modal" data-target="#emailModal">수정</button>
+					</div>
+				</div>
+
+				<!-- 주소 -->
+				<div class="input-group  input-group-sm mb-3">
+					<input type="text" readonly class="form-control-plaintext"
+						id="staticEmail" value="주소">
+					<div class="input-group-append">
+						<button type="button" class="btn btn-warning btn-sm"
+							data-toggle="modal" data-target="#addrModal">수정</button>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="card-body text-dark">
-
-			<div class="profile-user">
-				<img alt="profile_img" src="../images/myprofile.jpg"
-					class="profile-user-img">
+		<div class="card border-dark mb-3 w-75" id="profile_main";">
+			<div class="card-header">
+				<h5 class="card-title">나의 거래</h5>
 			</div>
-			<!-- 아이디 -->
-			<div id="id">아이디 호출</div>
-			<hr />
-			<!-- 닉네임 -->
-			<div class="input-group  input-group-sm mb-3">
-				<input type="text" readonly class="form-control-plaintext"
-					id="staticEmail" value="닉네임#">
-				<div class="input-group-append">
-					<button type="button" class="btn btn-warning btn-sm"
-						data-toggle="modal" data-target="#nicknameModal">수정</button>
+			<div class="card-body text-dark">
+				<div>
+					<h4>관심목록</h4>
+				</div>
+				<div>
+					<h4>판매내역</h4>
+				</div>
+				<div>
+					<h4>구매내역</h4>
 				</div>
 			</div>
-			<!-- 비밀번호 -->
-			<div class="input-group  input-group-sm mb-3">
-				<input type="text" readonly class="form-control-plaintext"
-					id="staticEmail" value="비밀번호">
-				<div class="input-group-append">
-					<button type="button" class="btn btn-warning btn-sm"
-						data-toggle="modal" data-target="#passModal">수정</button>
-				</div>
+			<div class="card-header ">
+				<h5 class="card-title">기타</h5>
 			</div>
-			<!-- 전화번호 -->
-			<div class="input-group  input-group-sm mb-3">
-				<input type="text" readonly class="form-control-plaintext"
-					id="staticEmail" value="전화번호">
-				<div class="input-group-append">
-					<button type="button" class="btn btn-warning btn-sm"
-						data-toggle="modal" data-target="#phoneModal">수정</button>
+			<div class="card-body text-dark ">
+				<div>
+					<h4>채팅</h4>
 				</div>
-			</div>
-			<!-- 이메일 -->
-			<div class="input-group  input-group-sm mb-3">
-				<input type="text" readonly class="form-control-plaintext"
-					id="staticEmail" value="이메일">
-				<div class="input-group-append">
-					<button type="button" class="btn btn-warning btn-sm"
-						data-toggle="modal" data-target="#emailModal">수정</button>
-				</div>
-			</div>
-
-			<!-- 주소 -->
-			<div class="input-group  input-group-sm mb-3">
-				<input type="text" readonly class="form-control-plaintext"
-					id="staticEmail" value="주소">
-				<div class="input-group-append">
-					<button type="button" class="btn btn-warning btn-sm"
-						data-toggle="modal" data-target="#addrModal">수정</button>
+				<div>
+					<h4>회원탈퇴</h4>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<!-- 모달창: 닉네임 -->
 	<div class="modal fade" id="nicknameModal" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -270,8 +309,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- Optional JavaScript; choose one of the two! -->
-
 	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
@@ -298,7 +335,7 @@
 			var button = $(event.relatedTarget)
 			var recipient = button.data('whatever')
 			var modal = $(this)
-			
+
 			modal.find('.modal-body input').val(recipient)
 		})
 		/* 전화번호 */
@@ -323,5 +360,7 @@
 			modal.find('.modal-body input').val(recipient)
 		})
 	</script>
+
+
 </body>
 </html>
