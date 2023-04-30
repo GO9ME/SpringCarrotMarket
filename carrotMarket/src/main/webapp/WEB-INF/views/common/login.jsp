@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,23 +19,25 @@
 					</button>
 				</div>
 				<div class="modal-body form-outline mb-4">
-					<form>
+					<form action="/carrot/login" method="post">
 						<div class="form-group">
 							<label class="form-label" for="typeEmailX-2">아이디</label> <input
-								type="email" id="typeEmailX-2"
-								class="form-control form-control-lg" />
+								type="text" id="typeEmailX-2"
+								class="form-control form-control-lg" name="user_id" />
 						</div>
 						<div class="form-group">
 							<label class="form-label" for="typePasswordX-2">비밀번호</label> <input
 								type="password" id="typePasswordX-2"
-								class="form-control form-control-lg" />
+								class="form-control form-control-lg" name="password" />
 						</div>
+						<button class="btn btn-lg btn-block"
+						style="background-color: #00b493; color: #fff;" type="submit">로그인</button>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button class="btn btn-lg btn-block"
-						style="background-color: #00b493; color: #fff;" type="submit">로그인</button>
-					<hr class="my-4">
+					<!-- <button class="btn btn-lg btn-block"
+						style="background-color: #00b493; color: #fff;" type="submit">로그인</button> -->
+				<!-- <hr class="my-4"> -->
 					<button class="btn btn-lg btn-block btn-primary"
 						style="background-color: #ffaf82; border: #ffaf82; color: black;"
 						type="submit" onclick="location.href='/carrot/member/signup1'">회원가입</button>
@@ -50,14 +52,13 @@
 	</div>
 	<script>
 		$('#exampleModal').on('show.bs.modal', function(event) {
-			alert('작동');
 			var button = $(event.relatedTarget) // Button that triggered the modal
 			var recipient = button.data('whatever') // Extract info from data-* attributes
 			// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 			// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 			var modal = $(this)
-			modal.find('.modal-title').text('New message to ' + recipient)
-			modal.find('.modal-body input').val(recipient)
+			//modal.find('.modal-title').text('New message to ' + recipient)
+			//modal.find('.modal-body input').val(recipient)
 		})
 	</script>
 

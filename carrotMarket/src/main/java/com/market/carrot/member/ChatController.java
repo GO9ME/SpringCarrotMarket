@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.market.carrot.member.chat.ChatDTO;
+import com.market.carrot.dto.ChatDTO;
 import com.market.carrot.member.chat.ChatService;
 
 /*
