@@ -1,4 +1,4 @@
-package com.market.carrot.member.chat;
+package com.market.carrot.dto;
 
 public class ChatDTO {
 	private String deptno;

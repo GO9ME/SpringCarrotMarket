@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.market.carrot.dto.ChatDTO;
+
 // 서비스에서 DAO 메소드 호출
 @Service
 public class ChatServiceImpl implements ChatService {

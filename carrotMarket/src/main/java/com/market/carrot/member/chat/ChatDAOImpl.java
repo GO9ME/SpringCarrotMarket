@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.market.carrot.dto.ChatDTO;
+import com.market.carrot.rowmapper.ChatRowMapper;
+
 @Repository
 public class ChatDAOImpl implements ChatDAO{
 	

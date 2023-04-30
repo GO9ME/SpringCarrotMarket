@@ -74,8 +74,9 @@ header {
 }
 
 header .header__inner {
-	max-width: 1024px;
-	margin: 0 auto;
+	/* max-width: 1024px; */
+	max-width: 70%;
+ 	margin: 0 auto; 
 	padding: 16px 0;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -105,7 +106,6 @@ header .header__inner .menu {
 
 header .header__inner .search {
 	width: 400px;
-	/* margin-right: 200px; */
 	padding: 6px 16px;
 	border: 1px solid #ecedee;
 	border-radius: 5px;
@@ -152,7 +152,7 @@ header .header__inner .search__input::placeholder {
 }
 
 header .header__inner .buttons {
-	width: 200px;
+	/* width: 300px; */
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -179,7 +179,7 @@ header .header__inner .buttons-menu .btn-click {
 	color: #ff8a3d;
 }
 
-header .header__inner .buttons .buttons-chat,.buttons-login {
+header .header__inner .buttons .buttons-chat,.buttons-login,.buttons-logout {
 	padding: 10px;
 	font-size: 1.1rem;
 }
@@ -201,10 +201,9 @@ header .header__inner .buttons-login {
 
 header .header__inner .buttons-logout {
 	padding: 10px;
-	font-size: 1.1rem;
+	/* font-size: 1.1rem; */
 	border: 1px solid #cfd1d3;
 	border-radius: 5px;
-	display: none;
 }
 
 /* header menu */
