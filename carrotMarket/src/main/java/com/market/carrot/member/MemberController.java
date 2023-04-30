@@ -14,7 +14,28 @@ public class MemberController {
 	@RequestMapping("/member/signup1")
 	public ModelAndView signUpPage1() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("member/mySignUpForm1");
+		mav.setViewName("member/SignUpForm1");
+		
+		return mav;
+	}
+	@RequestMapping("/member/signup2")
+	public ModelAndView signUpPage2() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/SignUpForm2");
+		
+		return mav;
+	}
+	@RequestMapping("/member/signup3")
+	public ModelAndView signUpPage3() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/SignUpForm3");
+		
+		return mav;
+	}
+	@RequestMapping("/member/signup4")
+	public ModelAndView signUpPage4() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/SignUpForm4");
 		
 		return mav;
 	}

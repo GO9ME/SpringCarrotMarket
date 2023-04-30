@@ -10,31 +10,8 @@
 <jsp:include page="../common/header.jsp"></jsp:include>
 <title>회원가입 화면:정보기입</title>
 
-<!-- Bootstrap CSS -->
-<!-- <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous"> -->
 
-<style>
-body {
-	min-height: 100vh;
-	background-color: #FBF5EF;
-}
-
-.input-form {
-	max-width: 680px;
-	margin-top: 60px;
-	padding: 30px;
-	background: #fff;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
-}
-</style>
+<link rel="stylesheet" href="/carrot/common/css/style_signUpForm.css">
 </head>
 
 <body>
@@ -139,11 +116,11 @@ body {
 					<!-- 가입버튼 -->
 					<div class="row">
 						<div class="col-md-6 mb-3">
-							<button class="btn btn-warning btn-lg btn-block" type="submit">가입
+							<button id="cancel" class="btn btn-warning btn-lg btn-block" type="button">
 								취소</button>
 						</div>
 						<div class="col-md-6 mb-3">
-							<button class="btn btn-warning btn-lg btn-block" type="submit">가입
+							<button id="fin" class="btn btn-warning btn-lg btn-block" type="submit">가입
 								완료</button>
 						</div>
 					</div>
@@ -153,6 +130,8 @@ body {
 		</div>
 
 	</div>
+	<script src="/carrot/common/js/cancel.js"></script>
+	<script src="/carrot/common/js/next3.js"></script>
 	<script>
     window.addEventListener('load', () => {
       const forms = document.getElementsByClassName('validation-form');
