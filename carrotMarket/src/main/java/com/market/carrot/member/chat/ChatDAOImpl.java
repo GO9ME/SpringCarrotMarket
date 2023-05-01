@@ -29,7 +29,8 @@ public class ChatDAOImpl implements ChatDAO{
 	@Override
 	public int insert(ChatDTO user) {
 		String sql = "insert into myemp values(?,?,?,?,?,1000,?)";
-		return mytemplate.update(sql,user.getDeptno(),user.getName(), user.getId(), user.getPass(),user.getAddr(),user.getGrade());
+		return 0;
+//		return mytemplate.update(sql,user.getDeptno(),user.getName(), user.getId(), user.getPass(),user.getAddr(),user.getGrade());
 	}
 	@Override
 	public List<ChatDTO> select() {
@@ -45,7 +46,8 @@ public class ChatDAOImpl implements ChatDAO{
 	public int update(ChatDTO dto) {
 		// TODO Auto-generated method stub
 		String sql = "update myemp set addr=?, grade=? where id = ?";
-		return mytemplate.update(sql, dto.getAddr(), dto.getGrade(), dto.getId());
+		return 0;
+//		return mytemplate.update(sql, dto.getAddr(), dto.getGrade(), dto.getId());
 	}
 	
 	@Override

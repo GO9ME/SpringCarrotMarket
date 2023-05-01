@@ -3,6 +3,7 @@ package com.market.carrot.rowmapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.jdbc.core.ColumnMapRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.market.carrot.dto.ChatDTO;
@@ -13,9 +14,12 @@ public class ChatRowMapper implements RowMapper<ChatDTO> {
 	@Override
 	public ChatDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		// TODO Auto-generated method stub
-		ChatDTO user = new ChatDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-				rs.getInt(6), rs.getString(7));
+		ChatDTO user = new ChatDTO(
+				rs.getInt(1),
+				rs.getInt(2),
+				rs.getTimestamp(3));
 		return user;
 	}
+	
 
 }
