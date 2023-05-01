@@ -5,19 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="../common/header.jsp"></jsp:include>
-<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    jQuery 추가
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    부트스트랩 JS 추가
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-        crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/700619e3a2.js" crossorigin="anonymous"></script>
- -->
-<link rel="stylesheet" href="/carrotMarket/assets/css/style_product.css" />
+
+<link rel="stylesheet" href="/carrot/common/css/style_product.css" />
 
 </head>
 
@@ -101,7 +90,7 @@
 			</div>
 		</div>
 		
-		<script type="text/javascript" src="/carrotMarket/assets/js/product.js"></script>
+		<script type="text/javascript" src="/carrot/common/js/product.js"></script>
 	</section>
 
 	<jsp:include page="../common/footer.jsp"></jsp:include>
