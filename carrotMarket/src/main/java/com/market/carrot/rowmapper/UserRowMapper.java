@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.market.carrot.dto.ChatDTO;
 import com.market.carrot.dto.UserDTO;
 
 public class UserRowMapper implements RowMapper<UserDTO> {
