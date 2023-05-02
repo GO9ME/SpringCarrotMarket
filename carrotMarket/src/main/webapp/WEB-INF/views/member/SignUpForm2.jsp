@@ -23,7 +23,7 @@
 		<div class="input-form-backgroud row">
 			<div class="input-form col-md-12 mx-auto">
 				<h4 class="mb-3">회원가입</h4>
-				<form class="validation-form" novalidate>
+				<form class="validation-form" action="/carrot/member/signup3" method="post">
 					<div class="card">
 						<div class="card-body">
 							<h6 class="card-title">휴대폰 본인확인</h6>
@@ -33,7 +33,7 @@
 							<div class="phone row">
 
 								<div class="form-group col-sm-9">
-									<input id="phone1" class="form-control" type="text"
+									<input id="phone1" name="phone1" class="form-control" type="text"
 										oninput="autoHyphen2(this)" maxlength="13"
 										placeholder="휴대폰번호를 입력하세요">
 								</div>

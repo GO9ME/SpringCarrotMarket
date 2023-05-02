@@ -3,6 +3,7 @@ package com.market.carrot.member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.market.carrot.dto.UserDTO;
@@ -39,6 +40,17 @@ public class MemberController {
 
 		return mav;
 	}
+	@RequestMapping(value = "/member/singup3_idcheck",produces = "application/text;charset=utf-8")
+    @ResponseBody
+    public String ajaxtest(String id) {
+        String msg="";
+        if(service.checkid(id)==0) {
+            msg = "사용가능한 아이디입니다.";
+        }else {
+            msg = "다른 아이디를 사용해주세요";
+        }
+        return msg;
+    }
 	
 	@Autowired
 	SignUpService service;
@@ -55,4 +67,5 @@ public class MemberController {
 
 		return mav;
 	}
+	
 }

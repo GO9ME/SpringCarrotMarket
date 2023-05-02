@@ -1,10 +1,10 @@
 window.addEventListener('load', () => {
 	var nextBtn = document.querySelector("#next");
 	
-	nextBtn.onclick= function(){
+	nextBtn.addEventListener('click',()=>{
 		location.href='/carrot/member/signup3';
 		return false;
-	}
+	})
 })
 // 휴대폰 번호 자동 하이픈
 const autoHyphen2 = (target) => {

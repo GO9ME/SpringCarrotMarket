@@ -16,4 +16,10 @@ public class SignUpServiceImpl implements SignUpService {
 		return dao.signUp(user);
 	}
 
+	@Override
+	public int checkid(String userid) {
+		return dao.checkid(userid);
+	}
+	
+
 }
