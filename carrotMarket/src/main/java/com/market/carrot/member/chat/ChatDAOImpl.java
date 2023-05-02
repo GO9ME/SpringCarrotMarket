@@ -6,12 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.validation.ObjectError;
 
 import com.market.carrot.dto.ChatConTentDTO;
-import com.market.carrot.dto.ChatDTO;
 import com.market.carrot.rowmapper.ChatContentRowMapper;
-import com.market.carrot.rowmapper.ChatRowMapper;
 
 @Repository
 public class ChatDAOImpl implements ChatDAO {
@@ -23,7 +20,7 @@ public class ChatDAOImpl implements ChatDAO {
 	public List<ChatConTentDTO> messageList(ChatConTentDTO dto) {
 		// TODO Auto-generated method stub
 		String nick = dto.getNick();
-		List<ChatConTentDTO> list = mytemplate.query("select * from chat_content where user_id = ? group by user_id",
+		List<ChatConTentDTO> list = mytemplate.query("select * from chat_content where user_id = ? group by user_id order by send_at desc",
 				new Object[] { nick }, new ChatContentRowMapper());
 		for (ChatConTentDTO data : list) {
 			String sql = "SELECT DISTINCT i.user_id FROM items i JOIN chat c ON i.items_id = c.items_id JOIN chat_content cc ON c.chat_id = cc.chat_id WHERE cc.user_id = ?";

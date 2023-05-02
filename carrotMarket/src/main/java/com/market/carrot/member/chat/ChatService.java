@@ -3,7 +3,6 @@ package com.market.carrot.member.chat;
 import java.util.List;
 
 import com.market.carrot.dto.ChatConTentDTO;
-import com.market.carrot.dto.ChatDTO;
 
 public interface ChatService {
 
