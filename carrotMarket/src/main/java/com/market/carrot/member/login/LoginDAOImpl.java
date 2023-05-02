@@ -1,6 +1,7 @@
 package com.market.carrot.member.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +17,13 @@ public class LoginDAOImpl implements LoginDAO{
 	@Override
 	public UserDTO Login(String user_id, String password) {
 		// TODO Auto-generated method stub
-		return mytemplate.queryForObject("select * from user where user_id = ? and password= ?", new Object[]{user_id, password}, new UserRowMapper());
+		UserDTO user = null;
+		try {
+			
+			user = mytemplate.queryForObject("select * from user where user_id = ? and password= ?", new Object[]{user_id, password}, new UserRowMapper());
+		} catch (EmptyResultDataAccessException e) {
+			// TODO: handle exception
+		}
+		return user;
 	}
 }
