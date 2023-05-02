@@ -6,71 +6,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.market.carrot.dto.ChatConTentDTO;
-import com.market.carrot.dto.ChatDTO;
 
 // 서비스에서 DAO 메소드 호출
 @Service
 public class ChatServiceImpl implements ChatService {
 	@Autowired
 	ChatDAO dao;
-	
+
 	@Override
 	public List<ChatConTentDTO> messageList(ChatConTentDTO dto) {
 		// TODO Auto-generated method stub
-		
-		List<ChatConTentDTO> list =  dao.messageList(dto);
+		List<ChatConTentDTO> list = dao.messageList(dto);
 
 		return list;
 	}
-	
+
 	@Override
 	public List<ChatConTentDTO> roomContentList(ChatConTentDTO dto) {
 		// TODO Auto-generated method stub
-		List<ChatConTentDTO> list =  dao.roomContentList(dto);
+		List<ChatConTentDTO> list = dao.roomContentList(dto);
 		return list;
 	}
-	
+
 	@Override
 	public int messageSendInlist(ChatConTentDTO dto) {
 		// TODO Auto-generated method stub
-		if (dto.getChat_id() == 0 ) {
-			
-		}
-		List<ChatConTentDTO> list =  dao.roomContentList(dto);
-		return 0;
-	}
-	
 
-	public ChatServiceImpl() {
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void servicetest(ChatDTO user) {
-		// TODO Auto-generated method stub
-		System.out.println("나 service");
-		dao.insert(user);
-	}
-
-	@Override
-	public List<ChatDTO> selectList() {
-		// TODO Auto-generated method stub
-
-		return dao.select();
-	}
-
-	@Override
-	public ChatDTO selectDetail(String id) {
-		// TODO Auto-generated method stub
-		ChatDTO user = dao.read(id);
-		return user;
-	}
-
-	@Override
-	public int update(ChatDTO user) {
-		// TODO Auto-generated method stub
-		int result = dao.update(user);
-		return result;
+		return dao.messageSendInlist(dto);
 	}
 
 }

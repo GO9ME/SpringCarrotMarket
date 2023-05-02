@@ -15,7 +15,7 @@ import com.market.carrot.member.chat.ChatService;
 */
 @Controller
 public class ChatController {
-	@RequestMapping("/member/chat")
+	@RequestMapping("/member/chat11")
 	public ModelAndView chatPage() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("chat/chat");
@@ -33,42 +33,42 @@ public class ChatController {
 		return "main/index";
 	}
 
-	@RequestMapping(value = "/mvc/insert.do", method = RequestMethod.POST)
-	public String sampletest(ChatDTO user) {
-		service.servicetest(user);
-		return "main/index";
-	}
-
-	@RequestMapping("/mvc/list.do")
-	public ModelAndView list() {
-		ModelAndView mav = new ModelAndView("member/list");
-		List<ChatDTO> userlist = service.selectList();
-		mav.addObject("userlist",userlist);
-		return mav;
-	}
-
-	@RequestMapping("/mvc/read.do")
-	public ModelAndView read(String id, String state) {
-		ModelAndView mav = new ModelAndView();
-		ChatDTO userdata = service.selectDetail(id);
-		String view = "";
-		if(state.equals("READ")) {
-			view = "member/emp_read";
-		} else {
-			view = "member/emp_update";
-			
-		}
-		mav.setViewName(view);
-		mav.addObject("userdata",userdata);
-		return mav;
-	}
-	
-	@RequestMapping("/mvc/update.do")
-	public String update(ChatDTO user) {
-		int result = service.update(user);
-		return "redirect:/mvc/list.do";
-	}
-	
+//	@RequestMapping(value = "/mvc/insert.do", method = RequestMethod.POST)
+//	public String sampletest(ChatDTO user) {
+//		service.servicetest(user);
+//		return "main/index";
+//	}
+//
+//	@RequestMapping("/mvc/list.do")
+//	public ModelAndView list() {
+//		ModelAndView mav = new ModelAndView("member/list");
+//		List<ChatDTO> userlist = service.selectList();
+//		mav.addObject("userlist",userlist);
+//		return mav;
+//	}
+//
+//	@RequestMapping("/mvc/read.do")
+//	public ModelAndView read(String id, String state) {
+//		ModelAndView mav = new ModelAndView();
+//		ChatDTO userdata = service.selectDetail(id);
+//		String view = "";
+//		if(state.equals("READ")) {
+//			view = "member/emp_read";
+//		} else {
+//			view = "member/emp_update";
+//			
+//		}
+//		mav.setViewName(view);
+//		mav.addObject("userdata",userdata);
+//		return mav;
+//	}
+//	
+//	@RequestMapping("/mvc/update.do")
+//	public String update(ChatDTO user) {
+//		int result = service.update(user);
+//		return "redirect:/mvc/list.do";
+//	}
+//	
 
 }
 

@@ -6,13 +6,7 @@ import com.market.carrot.dto.ChatConTentDTO;
 import com.market.carrot.dto.ChatDTO;
 
 public interface ChatService {
-	void servicetest(ChatDTO user);
 
-	List<ChatDTO> selectList();
-
-	ChatDTO selectDetail(String id);
-
-	int update(ChatDTO user);
 
 	List<ChatConTentDTO> messageList(ChatConTentDTO dto);
 

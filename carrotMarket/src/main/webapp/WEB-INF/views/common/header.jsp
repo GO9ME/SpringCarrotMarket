@@ -103,7 +103,7 @@
 					} else {
 					%>
 					<button class="buttons-chat__button"
-						onclick="location.href='/carrot/member/chat'">당근채팅</button>
+						onclick="location.href='/carrot/chat'">당근채팅</button>
 					<%
 					}
 					%>
