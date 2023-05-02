@@ -12,28 +12,28 @@ import com.market.carrot.member.login.LoginService;
 
 @Controller
 public class LoginController {
-	
+
 	@Autowired
 	LoginService service;
-	
+
 	@RequestMapping("/login")
 	public String login(String user_id, String password, HttpServletRequest request) {
 		UserDTO user = null;
 		user = service.checkLogin(user_id, password);
-//		String view = "index";
-		if (user != null ) {
+		String view = "redirect:/main";
+		if (user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("userdata", user);
-		
 		}
-		return "redirect:/main";
+		return view;
 	}
+
 	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request) {
-	    HttpSession session = request.getSession(false);
-	    if (session != null) {
-	        session.invalidate();
-	    }
-	    return "redirect:/main";
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			session.invalidate();
+		}
+		return "redirect:/main";
 	}
 }
