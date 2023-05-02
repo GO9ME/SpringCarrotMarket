@@ -1,3 +1,4 @@
+<%@page import="com.market.carrot.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -40,6 +41,9 @@
 </style>
 </head>
 <body>
+	<%
+	UserDTO user = (UserDTO) session.getAttribute("userdata");
+	%>
 	<div class="container">
 		<div class="card border-dark mb-3" id="profile_side"
 			style="max-width: 18rem; height: 100%;">
@@ -53,12 +57,12 @@
 						class="profile-user-img">
 				</div>
 				<!-- 아이디 -->
-				<div id="id">아이디 호출</div>
+				<div id="id"><%=user.getUser_id()%></div>
 				<hr />
 				<!-- 닉네임 -->
 				<div class="input-group  input-group-sm mb-3">
 					<input type="text" readonly class="form-control-plaintext"
-						id="staticEmail" value="닉네임#">
+						id="staticEmail" value="닉네임">
 					<div class="input-group-append">
 						<button type="button" class="btn btn-warning btn-sm"
 							data-toggle="modal" data-target="#nicknameModal">수정</button>
@@ -147,8 +151,8 @@
 				<div class="modal-body">
 					<form>
 						<div class="form-group">
-							<label for="old" class="col-form-label">기존 닉네임</label> <input
-								type="text" class="form-control" id="recipient-name">
+							<label for="old" class="col-form-label">기존 닉네임</label>
+							<div class="form-control"><%=user.getNickname()%></div>
 						</div>
 						<div class="form-group">
 							<label for="new-name" class="col-form-label">새로운 닉네임</label> <input

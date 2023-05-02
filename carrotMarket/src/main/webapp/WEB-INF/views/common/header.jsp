@@ -74,7 +74,7 @@
 
 				<div class="buttons-menu">
 					<button class="buttons-menu__store"
-						onclick="location.href='/carrot/product/register'">마이페이지</button>
+						onclick="location.href='/carrot/member/mypage'">마이페이지</button>
 				</div>
 
 				<%
