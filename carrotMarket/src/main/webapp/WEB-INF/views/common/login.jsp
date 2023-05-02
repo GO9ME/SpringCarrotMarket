@@ -19,7 +19,7 @@
 					</button>
 				</div>
 				<div class="modal-body form-outline mb-4">
-					<form action="/carrot/login" method="post">
+					<form action="/carrot/login" method="post" name="inputForm" onsubmit="return checkField();">
 						<div class="form-group">
 							<label class="form-label" for="typeEmailX-2">아이디</label> <input
 								type="text" id="typeEmailX-2"
@@ -31,7 +31,7 @@
 								class="form-control form-control-lg" name="password" />
 						</div>
 						<button class="btn btn-lg btn-block"
-						style="background-color: #00b493; color: #fff;" type="submit">로그인</button>
+						style="background-color: #00b493; color: #fff;" type="submit" id="loginBtn">로그인</button>
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -60,6 +60,19 @@
 			//modal.find('.modal-title').text('New message to ' + recipient)
 			//modal.find('.modal-body input').val(recipient)
 		})
+		
+		function checkField(){
+			let inputs = document.inputForm;
+			if(!inputs.user_id.value){	// name속성이 id인 요소의 value가 없으면 true
+				alert("아이디를 입력하세요.");
+				return false;	// pro페이지로 이동 금지.
+			}
+			if(!inputs.password.value){	
+				alert("비밀번호를 입력하세요.");
+				return false;
+			}
+		}
+		
 	</script>
 
 </body>
