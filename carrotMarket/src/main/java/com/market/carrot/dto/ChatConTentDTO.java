@@ -8,7 +8,7 @@ public class ChatConTentDTO {
 	private int chat_id;
 	private int items_id;
 	private String content;
-	private Timestamp timestamp;
+	private Timestamp send_at;
 	private String type;
 	private String use_at;
 
@@ -25,7 +25,7 @@ public class ChatConTentDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ChatConTentDTO(int key, String user_id, int chat_id, int items_id, String content, Timestamp timestamp, String type,
+	public ChatConTentDTO(int key, String user_id, int chat_id, int items_id, String content, Timestamp send_at, String type,
 			String use_at) {
 		super();
 		this.content_id = key;
@@ -33,15 +33,18 @@ public class ChatConTentDTO {
 		this.chat_id = chat_id;
 		this.items_id = items_id;
 		this.content = content;
-		this.timestamp = timestamp;
+		this.send_at = send_at;
 		this.type = type;
 		this.use_at = use_at;
 	}
 
+
 	@Override
 	public String toString() {
-		return "ChatDTO [key=" + content_id + ", user_id=" + user_id + ", chat_id=" + chat_id + ", items_id=" + items_id
-				+ ", content=" + content + ", timestamp=" + timestamp + ", type=" + type + ", use_at=" + use_at + "]";
+		return "ChatConTentDTO [content_id=" + content_id + ", user_id=" + user_id + ", chat_id=" + chat_id
+				+ ", items_id=" + items_id + ", content=" + content + ", send_at=" + send_at + ", type=" + type
+				+ ", use_at=" + use_at + ", other_nick=" + other_nick + ", profile=" + profile + ", nick=" + nick
+				+ ", unread=" + unread + "]";
 	}
 
 	public int getKey() {
@@ -84,12 +87,12 @@ public class ChatConTentDTO {
 		this.content = content;
 	}
 
-	public Timestamp getTimestamp() {
-		return timestamp;
+	public Timestamp getSend_at() {
+		return send_at;
 	}
 
-	public void setTimestamp(Timestamp timestamp) {
-		this.timestamp = timestamp;
+	public void setSend_at(Timestamp send_at) {
+		this.send_at = send_at;
 	}
 
 	public String getType() {
