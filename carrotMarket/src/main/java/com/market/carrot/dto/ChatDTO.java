@@ -1,91 +1,47 @@
 package com.market.carrot.dto;
 
+import java.sql.Timestamp;
+
 public class ChatDTO {
-	private String deptno;
-	private String name;
-	private String id;
-	private String pass;
-	private String addr;
-	private int point;
-	private String grade;
+	private int chat_id;
+	private int items_id;
+	private Timestamp registered_at;
 	
 	public ChatDTO() {
-		
+		// TODO Auto-generated constructor stub
 	}
-	//update용
-	public ChatDTO(String id, String pass, String addr, int point, String grade) {
+	
+	public ChatDTO(int chat_id, int items_id, Timestamp registered_at) {
 		super();
-		this.id = id;
-		this.pass = pass;
-		this.addr = addr;
-		this.point = point;
-		this.grade = grade;
+		this.chat_id = chat_id;
+		this.items_id = items_id;
+		this.registered_at = registered_at;
 	}
-	
-	//insert용
-	public ChatDTO(String deptno, String name, String id, String pass, String addr, String grade) {
-		super();
-		this.deptno = deptno;
-		this.name = name;
-		this.id = id;
-		this.pass = pass;
-		this.addr = addr;
-		this.grade = grade;
-	}
-	
-	
-	
-	//select용
-	public ChatDTO(String deptno, String name, String id, String pass, String addr, int point, String grade) {
-		this(deptno, name, id, pass, addr, grade);
-		this.point = point;
-	}
+
 	@Override
 	public String toString() {
-		return "EmpDTO [deptno=" + deptno + ", name=" + name + ", id=" + id + ", pass=" + pass + ", addr=" + addr
-				+ ", point=" + point + ", grade=" + grade + "]";
-	}
-	public String getDeptno() {
-		return deptno;
-	}
-	public void setDeptno(String deptno) {
-		this.deptno = deptno;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPass() {
-		return pass;
-	}
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-	public String getAddr() {
-		return addr;
-	}
-	public void setAddr(String addr) {
-		this.addr = addr;
-	}
-	public int getPoint() {
-		return point;
-	}
-	public void setPoint(int point) {
-		this.point = point;
-	}
-	public String getGrade() {
-		return grade;
-	}
-	public void setGrade(String grade) {
-		this.grade = grade;
+		return "ChatDTO [chat_id=" + chat_id + ", items_id=" + items_id + ", registered_at=" + registered_at + "]";
 	}
 	
+	public int getChat_id() {
+		return chat_id;
+	}
+	public void setChat_id(int chat_id) {
+		this.chat_id = chat_id;
+	}
+	public int getItems_id() {
+		return items_id;
+	}
+	public void setItems_id(int items_id) {
+		this.items_id = items_id;
+	}
+	public Timestamp getRegistered_at() {
+		return registered_at;
+	}
+	public void setRegistered_at(Timestamp registered_at) {
+		this.registered_at = registered_at;
+	}
+	
+	
+
 }

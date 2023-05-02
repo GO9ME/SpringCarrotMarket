@@ -6,48 +6,70 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.market.carrot.dto.ChatConTentDTO;
 import com.market.carrot.dto.ChatDTO;
+import com.market.carrot.rowmapper.ChatContentRowMapper;
 import com.market.carrot.rowmapper.ChatRowMapper;
 
 @Repository
-public class ChatDAOImpl implements ChatDAO{
-	
-	private JdbcTemplate mytemplate;
-	
+public class ChatDAOImpl implements ChatDAO {
+
 	@Autowired
-	public ChatDAOImpl(JdbcTemplate mytemplate)  {
-		// TODO Auto-generated constructor stub
-		super();
-		this.mytemplate = mytemplate;
+	private JdbcTemplate mytemplate;
+
+	@Override
+	public List<ChatConTentDTO> messageList(ChatConTentDTO dto) {
+		// TODO Auto-generated method stub
+		String nick = dto.getNick();
+		List<ChatConTentDTO> list = mytemplate.query("select * from chat_content", new ChatContentRowMapper());
+		return list;
 	}
-	
+
+	@Override
+	public List<ChatConTentDTO> roomContentList(ChatConTentDTO dto) {
+		// TODO Auto-generated method stub
+		return mytemplate.query("select * from chat_content", new ChatContentRowMapper());
+	}
+
+	@Override
+	public int messageSendInlist(ChatConTentDTO dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	@Override
 	public void test() {
 		// TODO Auto-generated method stub
 		System.out.println("나 dao");
 	}
+
 	@Override
 	public int insert(ChatDTO user) {
 		String sql = "insert into myemp values(?,?,?,?,?,1000,?)";
-		return mytemplate.update(sql,user.getDeptno(),user.getName(), user.getId(), user.getPass(),user.getAddr(),user.getGrade());
+		return 0;
+//		return mytemplate.update(sql,user.getDeptno(),user.getName(), user.getId(), user.getPass(),user.getAddr(),user.getGrade());
 	}
+
 	@Override
 	public List<ChatDTO> select() {
 		// TODO Auto-generated method stub
 		return mytemplate.query("select * from myemp", new ChatRowMapper());
 	}
+
 	@Override
 	public ChatDTO read(String id) {
 		// TODO Auto-generated method stub
-		return mytemplate.queryForObject("select * from myemp where id = ?", new Object[]{id}, new ChatRowMapper());
+		return mytemplate.queryForObject("select * from myemp where id = ?", new Object[] { id }, new ChatRowMapper());
 	}
+
 	@Override
 	public int update(ChatDTO dto) {
 		// TODO Auto-generated method stub
 		String sql = "update myemp set addr=?, grade=? where id = ?";
-		return mytemplate.update(sql, dto.getAddr(), dto.getGrade(), dto.getId());
+		return 0;
+//		return mytemplate.update(sql, dto.getAddr(), dto.getGrade(), dto.getId());
 	}
-	
+
 	@Override
 	public int delete(String id) {
 		// TODO Auto-generated method stub
