@@ -1,10 +1,20 @@
 window.addEventListener('load', () => {
 	var nextBtn = document.querySelector("#next");
+	var sendBtn = document.querySelector("#sendMessage");
 	
-	nextBtn.onclick= function(){
+	nextBtn.addEventListener('click',()=>{
 		location.href='/carrot/member/signup3';
 		return false;
-	}
+	})
+	
+	sendBtn.addEventListener('click',()=>{
+		/* 기본시간 설정 부분 3(분)입니다. */
+	  	var minutes = 3;
+
+		var fiveMinutes = (60 * minutes) - 1,
+		display = document.querySelector('#timeLimit');
+		startTimer(fiveMinutes, display);
+	})
 })
 // 휴대폰 번호 자동 하이픈
 const autoHyphen2 = (target) => {
@@ -35,12 +45,3 @@ function startTimer(duration, display) {
     }
   }, 1000);
 }
-
-window.onload = function () {
-  /* 기본시간 설정 부분 3(분)입니다. */
-  var minutes = 3;
-
-  var fiveMinutes = (60 * minutes) - 1,
-    display = document.querySelector('#timeLimit');
-  startTimer(fiveMinutes, display);
-};
