@@ -13,6 +13,6 @@ public interface ChatService {
 
 	int messageSendInlist(ChatConTentDTO dto);
 	
-	int createChatRoom(String user_id, String items_id);
+	int createChatRoom(String user_id, int items_id);
 
 }

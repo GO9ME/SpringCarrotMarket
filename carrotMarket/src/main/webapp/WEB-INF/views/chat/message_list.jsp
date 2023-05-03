@@ -73,7 +73,7 @@ pageEncoding="UTF-8"%>
     <script>
       const FirstMessageList = function () {
         $.ajax({
-          url: "message_ajax_list",
+          url: "/carrot/message_ajax_list",
           method: "get",
           data: {},
           success: function (data) {
@@ -124,7 +124,7 @@ pageEncoding="UTF-8"%>
       //메세지 리스트를 다시 가져옴
       const MessageList = function () {
         $.ajax({
-          url: "message_ajax_list",
+          url: "/carrot/message_ajax_list",
           method: "get",
           data: {},
           success: function (data) {
@@ -178,7 +178,7 @@ pageEncoding="UTF-8"%>
       // 읽지 않은 메세지들을 읽음으로 바꿈
       const MessageContentList = function (room) {
         $.ajax({
-          url: "message_content_list",
+          url: "/carrot/message_content_list",
           method: "GET",
           data: {
             room: room,
@@ -206,7 +206,7 @@ pageEncoding="UTF-8"%>
           alert("메시지를 입력하세요");
         } else {
           $.ajax({
-            url: "message_send_list",
+            url: "/carrot/message_send_list",
             method: "GET",
             data: {
               room: room,

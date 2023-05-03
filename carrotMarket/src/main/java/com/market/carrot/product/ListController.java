@@ -10,12 +10,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ListController {
-	@RequestMapping("/product/detail")
-	public ModelAndView detailPage() {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("product/productDetail");
-
-		
-		return mav;
-	}
+//	@RequestMapping("/product/detail")
+//	public ModelAndView detailPage() {
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName("product/productDetail");
+//
+//		
+//		return mav;
+//	}
 }

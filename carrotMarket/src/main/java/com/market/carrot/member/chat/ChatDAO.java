@@ -13,5 +13,11 @@ public interface ChatDAO {
 	
 	int messageSendInlist(ChatConTentDTO dto);
 	
-	int createChatRoom(String user_id, String items_id);
+	int createChatRoom(int items_id);
+	
+	int messageSend(String user_id, int items_id);
+	
+	int searchChatLastId();
+	
+	int getCountChatFromItem(int items_id);
 }

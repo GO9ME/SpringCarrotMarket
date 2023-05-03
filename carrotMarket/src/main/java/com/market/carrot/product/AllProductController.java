@@ -14,8 +14,8 @@ public class AllProductController {
 	@RequestMapping("/product/productlist")
 	public ModelAndView showlist() {
 		ModelAndView mav = new ModelAndView();
-		List<ProductDTO> productlist = dao.getProductList();
-		mav.addObject("productlist", productlist);
+		//List<ProductDTO> productlist = dao.getProductList();
+//		mav.addObject("productlist", productlist);
 		mav.setViewName("/product/productList");
 		return mav;
 	}
