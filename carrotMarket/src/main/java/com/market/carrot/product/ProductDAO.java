@@ -23,5 +23,5 @@ public interface ProductDAO {
 	public List<ProductDTO> getProductList(); //전체리스트 조회
 	public List<ProductDTO> interestlist();
 	UserDTO readUserData(int items_id);
-
+	int readStorageCount(int items_id);
 }
