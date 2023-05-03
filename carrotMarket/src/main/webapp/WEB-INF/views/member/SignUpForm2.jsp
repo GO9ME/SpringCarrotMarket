@@ -152,10 +152,12 @@ signInWithPhoneNumber(auth, '+82'+phoneNumber, appVerifier)
       // user in with confirmationResult.confirm(code).
       window.confirmationResult = confirmationResult;
       console.log(confirmationResult)
+	  alert("메세지가 전송되었습니다. 메세지를 확인해주세요")
 	// ...
     }).catch((error) => {
       // Error; SMS not sent
       // ...
+	  alert("메세지 전송에 실패했습니다. 번호를 확인해주세요")
     });	
 })
 
@@ -167,9 +169,11 @@ event.preventDefault()
   	// User signed in successfully.
   	const user = result.user;
 	console.log(result)
+	  alert("인증에 성공하였습니다.")
   	// ...
 	}).catch((error) => {
 	console.log(error)
+	  alert("인증에 실패하였습니다.")
   		// User couldn't sign in (bad verification code?)
   		// ...
 	});

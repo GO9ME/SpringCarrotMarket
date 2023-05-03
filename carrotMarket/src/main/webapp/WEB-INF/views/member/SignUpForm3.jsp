@@ -40,7 +40,7 @@ String phone = request.getParameter("phone1");
 						</div>
 						<div class="col-md-4 mb-3">
 							<button class="btn btn-warning btn-md btn-block" type="button"
-								id="idcheck" onclick="return false;">아이디 중복확인</button>
+								id="idcheck" onclick="return true;">아이디 중복확인</button>
 
 						</div>
 					</div>
@@ -83,26 +83,39 @@ String phone = request.getParameter("phone1");
 					<label for="address">주소</label>
 					<div class="row">
 						<div class="col-md-4 mb-3">
-							<select class="custom-select d-block w-100" name="sido" required>
+							<select class="custom-select d-block w-100" id='sido' name="sido" required onchange="updateSecondCombo()">
 								<option value="">시/도</option>
-								<option>검색</option>
-								<option>카페</option>
+								<option  value="서울">서울특별시</option>
+								<option  value="부산">부산광역시</option>
+								<option  value="대구">대구광역시</option>
+								<option  value="인천">인천광역시</option>
+								<option  value="광주">광주광역시</option>
+								<option  value="대전">대전광역시</option>
+								<option  value="울산">울산광역시</option>
+								<option  value="세종">세종특별자치시</option>
+								<option  value="경기">경기도</option>
+								<option  value="강원">강원도</option>
+								<option  value="충북">충청북도</option>
+								<option  value="충남">충청남도</option>
+								<option  value="전북">전라북도</option>
+								<option  value="전남">전라남도</option>
+								<option  value="경북">경상북도</option>
+								<option  value="경남">경상남도</option>
+								<option  value="제주">제주특별자치도</option>
 							</select>
 							<div class="invalid-feedback"></div>
 						</div>
 						<div class="col-md-3 mb-3">
-							<select class="custom-select d-block w-100" name="sigun" required>
+							<select class="custom-select d-block w-100" id="sigun" name="sigun" required>
 								<option value="">시/군/구</option>
-								<option>검색</option>
-								<option>카페</option>
+
 							</select>
 							<div class="invalid-feedback"></div>
 						</div>
 						<div class="col-md-3 mb-3">
-							<select class="custom-select d-block w-100" name="dong" required>
+							<select class="custom-select d-block w-100" id="dong" name="dong" required>
 								<option value="">읍/면/동</option>
-								<option>검색</option>
-								<option>카페</option>
+
 							</select>
 							<div class="invalid-feedback"></div>
 						</div>
@@ -155,6 +168,7 @@ String phone = request.getParameter("phone1");
 
 	<script src="/carrot/common/js/next3.js"></script>
 	<script src="/carrot/common/js/idCheck.js"></script>
+	<script src="/carrot/common/js/location.js"></script>
 
 	<script>
     window.addEventListener('load', () => {
