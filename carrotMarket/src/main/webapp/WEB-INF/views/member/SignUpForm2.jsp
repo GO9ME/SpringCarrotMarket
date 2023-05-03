@@ -95,6 +95,8 @@
           if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
+          }else{
+        	  location.href='/carrot/member/signup3';
           }
           form.classList.add('was-validated');
         }, false);

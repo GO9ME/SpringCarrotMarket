@@ -14,6 +14,7 @@ import com.market.carrot.member.signup.SignUpService;
 	회원가입
 	회원수정
 	마이페이지
+	회원탈퇴
 */
 @Controller
 public class MemberController {
