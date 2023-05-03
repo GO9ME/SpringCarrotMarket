@@ -12,4 +12,6 @@ public interface ChatDAO {
 	List<ChatConTentDTO> roomContentList(ChatConTentDTO dto);
 	
 	int messageSendInlist(ChatConTentDTO dto);
+	
+	int createChatRoom(String user_id, String items_id);
 }

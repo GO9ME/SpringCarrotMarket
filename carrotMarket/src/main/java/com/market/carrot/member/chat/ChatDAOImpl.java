@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.market.carrot.dto.ChatConTentDTO;
+import com.market.carrot.dto.UserDTO;
 import com.market.carrot.rowmapper.ChatContentRowMapper;
 
 @Repository
@@ -73,6 +74,23 @@ public class ChatDAOImpl implements ChatDAO {
 			e.printStackTrace();
 			return 0;
 		}
+	}
+	
+	@Override
+	public int createChatRoom(String user_id, String items_id) {
+		// TODO Auto-generated method stub
+		String sql = "INSERT INTO chat_content VALUES (null,last_insert_id(),now())";
+		int result = mytemplate.update(sql);
+		int rerturnVal = 0;
+		if ( result > 0 ) {
+			sql = "insert into chat_content (user_id, chat_id, items_id, content, send_at, type, use_at) "
+					+ "values(?,last_insert_id(),?,'해당 제품 관심있어서 연락드립니다' ,now(), 'T' ,'Y')";
+			rerturnVal = mytemplate.update(sql,user_id, items_id);
+		} else {
+			System.out.println("채팅방 생성 실패");
+			rerturnVal = 0;
+		}
+		return rerturnVal;
 	}
 
 
