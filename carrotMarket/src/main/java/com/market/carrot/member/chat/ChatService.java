@@ -2,15 +2,17 @@ package com.market.carrot.member.chat;
 
 import java.util.List;
 
-import com.market.carrot.dto.ChatDTO;
+import com.market.carrot.dto.ChatConTentDTO;
 
 public interface ChatService {
-	void servicetest(ChatDTO user);
 
-	List<ChatDTO> selectList();
 
-	ChatDTO selectDetail(String id);
+	List<ChatConTentDTO> messageList(ChatConTentDTO dto);
+
+	List<ChatConTentDTO> roomContentList(ChatConTentDTO dto);
+
+	int messageSendInlist(ChatConTentDTO dto);
 	
-	int update(ChatDTO user);
+	int createChatRoom(String user_id, String items_id);
 
 }

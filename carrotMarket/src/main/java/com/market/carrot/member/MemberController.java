@@ -40,6 +40,7 @@ public class MemberController {
 
 		return mav;
 	}
+
 	@RequestMapping(value = "/member/singup3_idcheck",produces = "application/text;charset=utf-8")
     @ResponseBody
     public String ajaxtest(String id) {
@@ -51,6 +52,7 @@ public class MemberController {
         }
         return msg;
     }
+
 	
 	@Autowired
 	SignUpService service;

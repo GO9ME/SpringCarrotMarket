@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.market.carrot.dto.ChatDTO;
+import com.market.carrot.dto.ChatConTentDTO;
 
 // 서비스에서 DAO 메소드 호출
 @Service
@@ -13,36 +13,32 @@ public class ChatServiceImpl implements ChatService {
 	@Autowired
 	ChatDAO dao;
 
-	public ChatServiceImpl() {
-		// TODO Auto-generated constructor stub
+	@Override
+	public List<ChatConTentDTO> messageList(ChatConTentDTO dto) {
+		// TODO Auto-generated method stub
+		List<ChatConTentDTO> list = dao.messageList(dto);
+
+		return list;
 	}
 
 	@Override
-	public void servicetest(ChatDTO user) {
+	public List<ChatConTentDTO> roomContentList(ChatConTentDTO dto) {
 		// TODO Auto-generated method stub
-		System.out.println("나 service");
-		dao.insert(user);
+		List<ChatConTentDTO> list = dao.roomContentList(dto);
+		return list;
 	}
 
 	@Override
-	public List<ChatDTO> selectList() {
+	public int messageSendInlist(ChatConTentDTO dto) {
 		// TODO Auto-generated method stub
 
-		return dao.select();
+		return dao.messageSendInlist(dto);
 	}
-
-	@Override
-	public ChatDTO selectDetail(String id) {
-		// TODO Auto-generated method stub
-		ChatDTO user = dao.read(id);
-		return user;
+	
+	public int createChatRoom(String user_id, String items_id) {
+		
+		return dao.createChatRoom(user_id, items_id);
 	}
-
-	@Override
-	public int update(ChatDTO user) {
-		// TODO Auto-generated method stub
-		int result = dao.update(user);
-		return result;
-	}
-
+	
+	
 }

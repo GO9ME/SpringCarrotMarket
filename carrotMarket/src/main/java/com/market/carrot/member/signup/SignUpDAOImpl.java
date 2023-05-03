@@ -18,6 +18,7 @@ public class SignUpDAOImpl implements SignUpDAO {
 				user.getEmail(), user.getSido(), user.getSigun(), user.getDong(), user.getCellphone());
 	}
 
+
 	@Override
 	public int checkid(String userid) {
 		String sql = "select count(*) from user where user_id = ?";

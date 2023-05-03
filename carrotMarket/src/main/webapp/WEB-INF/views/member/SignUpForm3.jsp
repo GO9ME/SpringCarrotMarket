@@ -24,13 +24,16 @@ String phone = request.getParameter("phone1");
 		<div class="input-form-backgroud row">
 			<div class="input-form col-md-12 mx-auto">
 				<h4 class="mb-3">회원가입</h4>
+
 				<form class="validation-form" novalidate
 					action="/carrot/member/signup4" method="post">
+
 
 					<!-- 아이디 -->
 					<label for="id">아이디</label>
 					<div class="row">
 						<div class="col-md-8 mb-3">
+
 							<input type="text" class="form-control" id="id" name="user_id"
 								required>
 							<div id="result">${msg}</div>
@@ -38,6 +41,7 @@ String phone = request.getParameter("phone1");
 						<div class="col-md-4 mb-3">
 							<button class="btn btn-warning btn-md btn-block" type="button"
 								id="idcheck" onclick="return false;">아이디 중복확인</button>
+
 						</div>
 					</div>
 
@@ -59,14 +63,18 @@ String phone = request.getParameter("phone1");
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="name">이름</label> <input type="text"
+
 								class="form-control" id="name" name="name" placeholder=""
 								required>
+
 							<div class="invalid-feedback">이름을 입력해주세요.</div>
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="nickname">별명</label> <input type="text"
+
 								class="form-control" id="nickname" name="nickname"
 								placeholder="" required>
+
 							<div class="invalid-feedback">별명을 입력해주세요.</div>
 						</div>
 					</div>
@@ -107,15 +115,19 @@ String phone = request.getParameter("phone1");
 
 					<!-- 전화번호:인증받은 번호 넘겨주기(사용자 입력X) -->
 					<div class="mb-3">
+
 						<label for="phone">전화번호</label>
 						<div class="form-control" id="phone" name="cellphone">
 							${param.phone1}</div>
+
 					</div>
 					<!-- 이메일 -->
 					<div class="mb-3">
 						<label for="email">이메일(*선택)</label> <input type="email"
+
 							class="form-control" id="email" name="email"
 							placeholder="you@example.com">
+
 						<div class="warning"></div>
 					</div>
 
@@ -140,8 +152,10 @@ String phone = request.getParameter("phone1");
 
 	</div>
 	<script src="/carrot/common/js/cancel.js"></script>
+
 	<script src="/carrot/common/js/next3.js"></script>
 	<script src="/carrot/common/js/idCheck.js"></script>
+
 	<script>
     window.addEventListener('load', () => {
       const forms = document.getElementsByClassName('validation-form');
@@ -155,7 +169,9 @@ String phone = request.getParameter("phone1");
           form.classList.add('was-validated');
         }, false);
       });
+
     }, false);
+
 
   </script>
 </body>

@@ -80,8 +80,7 @@
 				<option value="전라남도">전라남도</option>
 				<option value="경상북도">경상북도</option>
 				<option value="경상남도">경상남도</option>
-				<option value="제주특별자치도">제주특별자치도</option></select> 
-				<select name="region2"
+				<option value="제주특별자치도">제주특별자치도</option></select> <select name="region2"
 				id="region2" disabled="disabled"
 				onchange="changeRegion(&#39;r2&#39;, this.value)"
 				class="hot-articles-nav-select"><option value="">동네를
@@ -103,10 +102,10 @@
 				<option value="경상북도">경상북도</option>
 				<option value="경상남도">경상남도</option>
 				<option value="제주특별자치도">제주특별자치도</option></select>
-				<div class="search">
-					<input type="text" placeholder="Searah.." class="ser-txt">
-					<input type="submit" value="검색" class="btn-ser">
-				</div>
+			<div class="search">
+				<input type="text" placeholder="Searah.." class="ser-txt"> <input
+					type="submit" value="검색" class="btn-ser">
+			</div>
 		</nav>
 		<section class="cards-wrap">
 			<article class="card-top ">

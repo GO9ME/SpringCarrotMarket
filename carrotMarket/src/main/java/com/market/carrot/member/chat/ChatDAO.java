@@ -2,18 +2,16 @@ package com.market.carrot.member.chat;
 
 import java.util.List;
 
-import com.market.carrot.dto.ChatDTO;
+import com.market.carrot.dto.ChatConTentDTO;
 
 public interface ChatDAO {
-	void test();
 
-	int insert(ChatDTO user);
-
-	List<ChatDTO> select();
 	
-	ChatDTO read(String id);
+	List<ChatConTentDTO> messageList(ChatConTentDTO dto);
 	
-	int update(ChatDTO dto);
+	List<ChatConTentDTO> roomContentList(ChatConTentDTO dto);
 	
-	int delete(String id);
+	int messageSendInlist(ChatConTentDTO dto);
+	
+	int createChatRoom(String user_id, String items_id);
 }

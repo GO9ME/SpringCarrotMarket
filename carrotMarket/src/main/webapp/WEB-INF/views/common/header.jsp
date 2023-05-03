@@ -52,11 +52,24 @@
 						</div>
 					</div>
 				</div>
+				<%
+				if (user != null) {
+				%>
+
 				<div class="buttons-menu">
 					<button class="buttons-menu__store"
 						onclick="location.href='/carrot/product/register'">상품등록</button>
 				</div>
 
+				<%
+				} else {
+				%>
+				<div class="buttons-menu">
+					<button class="buttons-menu__store" data-toggle="modal" data-target="#exampleModal" data-whatever="">상품등록</button>
+				</div>
+				<%
+				}
+				%>
 
 
 			</div>
@@ -90,7 +103,7 @@
 					} else {
 					%>
 					<button class="buttons-chat__button"
-						onclick="location.href='/carrot/member/chat'">당근채팅</button>
+						onclick="location.href='/carrot/chat'">당근채팅</button>
 					<%
 					}
 					%>
