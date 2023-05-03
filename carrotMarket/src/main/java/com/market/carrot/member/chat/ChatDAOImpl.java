@@ -28,11 +28,11 @@ public class ChatDAOImpl implements ChatDAO {
 			try {
 				String other_nick = mytemplate.queryForObject(sql, new Object[] { nick }, String.class);
 				data.setOther_nick(other_nick);
-				System.out.println("messageList 조회완료");
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
 		}
+		System.out.println("messageList " + list);
 		return list;
 	}
 
@@ -70,8 +70,7 @@ public class ChatDAOImpl implements ChatDAO {
 			items_id = mytemplate.queryForObject(sql, new Object[] { dto.getOther_nick(), dto.getChat_id() },
 					Integer.class);
 			System.out.println("items_id " + items_id);
-			sql = "insert into chat_content (user_id, chat_id, items_id, other_nick, content, send_at, type, use_at) "
-					+ "values(?,?,?,?,?,sysdate(),?,'Y')";
+			sql = "insert into chat_content (user_id, chat_id, items_id, other_nick, content, send_at, type, use_at) values(?,?,?,?,?,sysdate(),?,'Y')";
 
 			return mytemplate.update(sql, dto.getUser_id(), dto.getChat_id(), items_id,dto.getOther_nick(), dto.getContent(), "t");
 		} catch (DataAccessException e) {
@@ -98,8 +97,7 @@ public class ChatDAOImpl implements ChatDAO {
 		String recv_id= searchRecvId(items_id);
 		int result = 0;
 		if (chat_id > 0) {
-			String sql = "insert into chat_content (user_id, chat_id, items_id, other_nick, content, send_at, type, use_at) "
-					+ "values(?,?,?,?,'해당 제품 관심있어서 연락드립니다' ,sysdate(), 'T' ,'Y')";
+			String sql = "insert into chat_content (user_id, chat_id, items_id, other_nick, content, send_at, type, use_at) values(?,?,?,?,'해당 제품 관심있어서 연락드립니다' ,sysdate(), 'T' ,'Y')";
 
 
 			result = mytemplate.update(sql, user_id, chat_id, items_id, recv_id);

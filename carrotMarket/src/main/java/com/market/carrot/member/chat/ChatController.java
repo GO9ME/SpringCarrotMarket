@@ -47,7 +47,7 @@ public class ChatController {
 
 		// 메시지 리스트
 		List<ChatConTentDTO> list = service.messageList(dto);
-
+		mav.addObject("list", list);
 		System.out.println("list : " + list);
 
 
