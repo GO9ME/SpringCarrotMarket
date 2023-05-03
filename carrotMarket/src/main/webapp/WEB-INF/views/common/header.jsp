@@ -40,7 +40,7 @@
 						<div class="gnb-inner">
 							<ul>
 								<li class="active"><a
-									href="/carrot/view/product/sellList.jsp"><button
+									href="/carrot/product/productlist"><button
 											class="buttons-menu__list">상품목록</button></a></li>
 								<li><a href=""><button class="buttons-menu__listk">인기상품</button></a></li>
 							</ul>
