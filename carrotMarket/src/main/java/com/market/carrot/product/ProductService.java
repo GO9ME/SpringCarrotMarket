@@ -37,5 +37,4 @@ public interface ProductService {
 	
 
 
-	int readChatCount(int items_id);
 }
