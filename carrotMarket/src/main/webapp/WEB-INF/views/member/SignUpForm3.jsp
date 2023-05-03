@@ -37,7 +37,7 @@ String phone = request.getParameter("phone1");
 						</div>
 						<div class="col-md-4 mb-3">
 							<button class="btn btn-warning btn-md btn-block" type="button"
-								id="idcheck"  onclick="return false;">아이디 중복확인</button>
+								id="idcheck" onclick="return false;">아이디 중복확인</button>
 						</div>
 					</div>
 
@@ -141,7 +141,7 @@ String phone = request.getParameter("phone1");
 	</div>
 	<script src="/carrot/common/js/cancel.js"></script>
 	<script src="/carrot/common/js/next3.js"></script>
- 	<script src="/carrot/common/js/idCheck.js"></script> 
+	<script src="/carrot/common/js/idCheck.js"></script>
 	<script>
     window.addEventListener('load', () => {
       const forms = document.getElementsByClassName('validation-form');

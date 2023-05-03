@@ -1,6 +1,6 @@
 $(document).ready(function(){
+	var isIdChecked=false; //중복체크했을 땐 true로 변경
 	$("#idcheck").on("click",function(){
-		var isIdChecked=false; //중복체크했을 땐 true로 변경
 		var querydata = {"id":$("#id").val()}
 		
 		$.ajax({
@@ -13,6 +13,22 @@ $(document).ready(function(){
 		
 	})//end click
 
+// id중복체크확인버튼 이벤트
+    //Id값 바뀔 때마다 
+    var id = document.getElementById('id')
+	id.addEventListener('change', function(e){
+    	isIdChecked=false;
+    	$("#result").html("<a style='color: red;'>아이디 중복체크를 해주세요</a>");
+    });
+
+    //제출버튼 클릭시 중복체크여부
+    var fin = document.getElementById('fin')
+    fin.addEventListener('click',function(e) {
+        if(isIdChecked==false){
+	    	e.preventDefault();
+        	alert("id 중복체크를 해주세요");
+        }
+    });// 다음버튼
 })//end ready
 	
 //ajax요청을 성공하면 .ajax메소드 내부에서 success속성에 설정한 함수를 호출하면서 ajax처리 결과를 자동으로 함수의 매개변수로 전달
