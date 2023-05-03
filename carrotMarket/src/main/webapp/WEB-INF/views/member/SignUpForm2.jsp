@@ -23,7 +23,8 @@
 		<div class="input-form-backgroud row">
 			<div class="input-form col-md-12 mx-auto">
 				<h4 class="mb-3">회원가입</h4>
-				<form class="validation-form" novalidate>
+				<form class="validation-form" action="/carrot/member/signup3"
+					method="post">
 					<div class="card">
 						<div class="card-body">
 							<h6 class="card-title">휴대폰 본인확인</h6>
@@ -33,9 +34,9 @@
 							<div class="phone row">
 
 								<div class="form-group col-sm-9">
-									<input id="phone1" class="form-control" type="text"
-										oninput="autoHyphen2(this)" maxlength="13"
-										placeholder="휴대폰번호를 입력하세요">
+									<input id="phone1" name="phone1" class="form-control"
+										type="text" oninput="autoHyphen2(this)" maxlength="13"
+										placeholder="휴대폰번호를 입력하세요" required>
 								</div>
 								<div class="form-group">
 									<button id="sendMessage" class="btn btn-warning btn-md"
@@ -46,17 +47,18 @@
 							<div class="auth row">
 								<div class="form-group col-sm-9">
 									<input type="text" class="form-control"
-										id="certificationNumber" placeholder="전송받은 인증번호를 입력하세요">
+										id="certificationNumber" placeholder="전송받은 인증번호를 입력하세요"
+										required>
 								</div>
-								<div class="form-group" >
-									<button id="completion" class="btn btn-warning btn-md btn-block"
-										type="button">인증번호 확인</button>
+								<div class="form-group">
+									<button id="completion"
+										class="btn btn-warning btn-md btn-block" type="button">인증번호
+										확인</button>
 								</div>
 							</div>
 							<!-- 인증유효시간 -->
 							<div class="timer">
-								<span>인증번호 유효시간:</span>
-								<span id="timeLimit">03:00</span>
+								<span>인증번호 유효시간:</span> <span id="timeLimit">03:00</span>
 							</div>
 
 						</div>
@@ -84,6 +86,96 @@
 	</div>
 	<script src="/carrot/common/js/cancel.js"></script>
 	<script src="/carrot/common/js/next2.js"></script>
+	<script>
+    window.addEventListener('load', () => {
+      const forms = document.getElementsByClassName('validation-form');
+
+      Array.prototype.filter.call(forms, (form) => {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+
+  </script>
+	<script type="module">
+	  // Import the functions you need from the SDKs you need
+	  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+	  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-analytics.js";
+	  // TODO: Add SDKs for Firebase products that you want to use
+	  // https://firebase.google.com/docs/web/setup#available-libraries
+
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  const firebaseConfig = {
+	    apiKey: "AIzaSyBITdYovYnC__3ybPuOH0GcWrk35TK2KfM",
+	    authDomain: "minipjt-70ef7.firebaseapp.com",
+	    projectId: "minipjt-70ef7",
+	    storageBucket: "minipjt-70ef7.appspot.com",
+	    messagingSenderId: "347846585263",
+	    appId: "1:347846585263:web:4d44e8770d37fe14df9d5a",
+	    measurementId: "G-KTP9QBC631"
+	  };
+
+	  // Initialize Firebase
+	  const app = initializeApp(firebaseConfig);
+	  const analytics = getAnalytics(app);
+	
+	//코드 시작
+	import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+
+	const auth = getAuth();
+	auth.languageCode = 'ko';
+	
+	window.recaptchaVerifier = new RecaptchaVerifier('sendMessage', {
+	  'size': 'invisible',
+	  'callback': (response) => {
+	    // reCAPTCHA solved, allow signInWithPhoneNumber.
+	    onSignInSubmit();
+		  }
+	}, auth);
+
+	document.getElementById('sendMessage').addEventListener('click',(event)=>{
+		event.preventDefault()
+
+	const phoneNumber = document.getElementById('phone1').value;
+	const appVerifier = window.recaptchaVerifier;
+
+
+signInWithPhoneNumber(auth, '+82'+phoneNumber, appVerifier)
+    .then((confirmationResult) => {
+      // SMS sent. Prompt user to type the code from the message, then sign the
+      // user in with confirmationResult.confirm(code).
+      window.confirmationResult = confirmationResult;
+      console.log(confirmationResult)
+	// ...
+    }).catch((error) => {
+      // Error; SMS not sent
+      // ...
+    });	
+})
+
+document.getElementById('completion').addEventListener('click',(event)=>{
+event.preventDefault()
+
+	const code = document.getElementById('certificationNumber').value;
+	confirmationResult.confirm(code).then((result) => {
+  	// User signed in successfully.
+  	const user = result.user;
+	console.log(result)
+  	// ...
+	}).catch((error) => {
+	console.log(error)
+  		// User couldn't sign in (bad verification code?)
+  		// ...
+	});
+})
+	</script>
+
 </body>
 
 </html>
