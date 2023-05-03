@@ -24,6 +24,10 @@ public class LoginController {
 		if (user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("userdata", user);
+		} else {
+			request.setAttribute("msg", "로그인 실패");
+			request.setAttribute("url", "/carrot/main");
+			return "common/alert";
 		}
 		return view;
 	}

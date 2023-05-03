@@ -1,34 +1,71 @@
 package com.market.carrot.product;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.WebUtils;
 
+import com.market.carrot.dto.FileDTO;
 import com.market.carrot.dto.ProductDTO;
+import com.market.carrot.dto.UserDTO;
 
 /*
-
 	상품등록/수정/삭제 
 */
 @Controller
 public class ProductController {
 	@Autowired
 	ProductService service;
-	
+	@Autowired
+	FileUploadLogic fileuploadService;
+
 	@RequestMapping("/product/register")
 	public ModelAndView registerPage() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("product/register");
+
+		return mav;
+	}
+
+	@RequestMapping("/product/post")
+	public String insertPost(ProductDTO product, HttpSession session) throws IllegalStateException, IOException {
+		List<MultipartFile> files = product.getFile();
+		String path = WebUtils.getRealPath(session.getServletContext(), "/WEB-INF/upload");
+		System.out.println(path);
+		System.out.println(product);
+		List<FileDTO> fileDtoList = fileuploadService.uploadFiles(files, path);
+		int count = 1;
+		for (FileDTO fileDto : fileDtoList) {
+			fileDto.setImageFileno(count + "");
+			count++;
+			System.out.println(fileDto);
+		}
+		
+		service.insert(product, fileDtoList);
+		return "redirect:/list";
+	}
+	
+	@RequestMapping("/product/detail")
+	public ModelAndView insertPost(int items_id, HttpSession session) throws FileNotFoundException {
+		UserDTO user = (UserDTO) session.getAttribute("userdata");
+		List<FileDTO> imglist = service.readImgFile(items_id);
+		ProductDTO dto = service.readProduct(items_id);
+		int ChatCount = service.readChatCount(items_id);
+
+		ModelAndView mav = new ModelAndView("product/productDetail");
+		mav.addObject("imglist",imglist);
+		mav.addObject("dto",dto);
+		mav.addObject("ChatCount",ChatCount);
 		
 		return mav;
 	}
-	
-	@RequestMapping("/product/post")
-	public String insertPost(ProductDTO product) {
-//		service.insert(product);
-		System.out.println(product);
-		return "product/list";
-	}
-	
 
 }

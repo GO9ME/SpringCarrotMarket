@@ -2,7 +2,25 @@ package com.market.carrot.product;
 
 import java.util.List;
 
-public interface ProductService {
-	public List<ProductDTO> select();
+import com.market.carrot.dto.FileDTO;
+import com.market.carrot.dto.ProductDTO;
 
+public interface ProductService {
+	int insert(ProductDTO product);
+
+	int insert(ProductDTO product, List<FileDTO> deptfiledtolist);
+
+	List<ProductDTO> select();
+
+	ProductDTO read(int items_id);
+
+	int update(ProductDTO product);
+
+	int delete(String items_id);
+
+	List<FileDTO> readImgFile(int items_id);
+
+	ProductDTO readProduct(int items_id);
+
+	int readChatCount(int items_id);
 }
