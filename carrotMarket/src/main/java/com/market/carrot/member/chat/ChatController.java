@@ -16,7 +16,7 @@ import com.market.carrot.dto.ChatConTentDTO;
 import com.market.carrot.dto.UserDTO;
 
 @Controller
-public class MessageController {
+public class ChatController {
 
 	@Autowired
 	ChatService service;
@@ -26,7 +26,6 @@ public class MessageController {
 	public ModelAndView message_list(HttpSession session) {
 		ModelAndView mav = new ModelAndView("chat/message_list");
 		UserDTO user = (UserDTO) session.getAttribute("userdata");
-		System.out.println(user);
 		String nick = user.getUser_id();
 		ChatConTentDTO dto = new ChatConTentDTO();
 		dto.setNick(nick);
@@ -42,14 +41,15 @@ public class MessageController {
 	public ModelAndView message_ajax_list(HttpSession session) {
 		ModelAndView mav = new ModelAndView("chat/message_ajax_list");
 		UserDTO user = (UserDTO) session.getAttribute("userdata");
-		System.out.println("ajax" + user);
 		String nick = user.getUser_id();
 		ChatConTentDTO dto = new ChatConTentDTO();
 		dto.setNick(nick);
 
 		// 메시지 리스트
 		List<ChatConTentDTO> list = service.messageList(dto);
-		mav.addObject("list", list);
+
+		System.out.println("list : " + list);
+
 
 		return mav;
 	}
@@ -58,6 +58,7 @@ public class MessageController {
 	public ModelAndView message_content_list(HttpServletRequest request, HttpSession session) {
 		ModelAndView mav = new ModelAndView("chat/message_content_list");
 		UserDTO user = (UserDTO) session.getAttribute("userdata");
+
 		String nick = user.getUser_id();
 		int room = Integer.parseInt(request.getParameter("room"));
 		ChatConTentDTO dto = new ChatConTentDTO();
@@ -70,12 +71,23 @@ public class MessageController {
 
 		return mav;
 	}
-	
+
+	// 채팅방 생성
 	@RequestMapping(value = "/create_chat")
-	public ModelAndView createChatRoom(String items_id, HttpSession session) {
-		ModelAndView mav = new ModelAndView("redirect:/chat");
-	
-		return mav;
+	public String createChatRoom(int items_id, HttpSession session, HttpServletRequest request) {
+		UserDTO user = (UserDTO) session.getAttribute("userdata");
+		String user_id = user.getUser_id();
+		int result = service.createChatRoom(user_id, items_id);
+		String view = "";
+		if (result > 0) {
+			view = "redirect:" + "/chat/";
+		} else {
+			String referer = request.getHeader("Referer");
+			view = "redirect:" + referer;
+
+		}
+
+		return view;
 	}
 
 	// 메시지 리스트에서 메세지 보내기
@@ -84,10 +96,11 @@ public class MessageController {
 	public int message_send_inlist(@RequestParam int room, @RequestParam String other_nick,
 			@RequestParam String content, HttpSession session) {
 		
-
 		UserDTO user = (UserDTO) session.getAttribute("userdata");
+		
 		String nick = user.getUser_id();
-		System.out.println(nick);
+		
+
 
 		ChatConTentDTO dto = new ChatConTentDTO();
 		dto.setChat_id(room);

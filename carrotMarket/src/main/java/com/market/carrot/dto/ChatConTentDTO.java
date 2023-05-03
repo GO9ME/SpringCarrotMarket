@@ -2,57 +2,61 @@ package com.market.carrot.dto;
 
 import java.sql.Timestamp;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class ChatConTentDTO {
 	private int content_id;
 	private String user_id;
 	private int chat_id;
 	private int items_id;
+	private String other_nick;
 	private String content;
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private Timestamp send_at;
 	private String type;
 	private String use_at;
 
-	//현재 사용자의 메시지 상대 nick담기
-	private String other_nick;
-	//현재 사용자의 메시지 상대 profile을 담는다
+	// 현재 사용자의 메시지 상대 nick담기
+	//private String other_nick;
+	// 현재 사용자의 메시지 상대 profile을 담는다
 	private String profile;
-	//현재 사용자 nick
+	// 현재 사용자 nick
 	private String nick;
-	//안읽은 메시지 갯수
+	// 안읽은 메시지 갯수
 	private int unread;
-	
+
 	public ChatConTentDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ChatConTentDTO(int key, String user_id, int chat_id, int items_id, String content, Timestamp send_at, String type,
-			String use_at) {
+	public ChatConTentDTO(int content_id, String user_id, int chat_id, int items_id, String other_nick, String content,
+			Timestamp send_at, String type, String use_at) {
 		super();
-		this.content_id = key;
+		this.content_id = content_id;
 		this.user_id = user_id;
 		this.chat_id = chat_id;
 		this.items_id = items_id;
+		this.other_nick = other_nick;
 		this.content = content;
 		this.send_at = send_at;
 		this.type = type;
 		this.use_at = use_at;
 	}
 
-
 	@Override
 	public String toString() {
 		return "ChatConTentDTO [content_id=" + content_id + ", user_id=" + user_id + ", chat_id=" + chat_id
-				+ ", items_id=" + items_id + ", content=" + content + ", send_at=" + send_at + ", type=" + type
-				+ ", use_at=" + use_at + ", other_nick=" + other_nick + ", profile=" + profile + ", nick=" + nick
+				+ ", items_id=" + items_id + ", other_nick=" + other_nick + ", content=" + content + ", send_at="
+				+ send_at + ", type=" + type + ", use_at=" + use_at + ", profile=" + profile + ", nick=" + nick
 				+ ", unread=" + unread + "]";
 	}
 
-	public int getKey() {
+	public int getContent_id() {
 		return content_id;
 	}
 
-	public void setKey(int key) {
-		this.content_id = key;
+	public void setContent_id(int content_id) {
+		this.content_id = content_id;
 	}
 
 	public String getUser_id() {
@@ -77,6 +81,14 @@ public class ChatConTentDTO {
 
 	public void setItems_id(int items_id) {
 		this.items_id = items_id;
+	}
+
+	public String getOther_nick() {
+		return other_nick;
+	}
+
+	public void setOther_nick(String other_nick) {
+		this.other_nick = other_nick;
 	}
 
 	public String getContent() {
@@ -111,22 +123,6 @@ public class ChatConTentDTO {
 		this.use_at = use_at;
 	}
 
-	public int getContent_id() {
-		return content_id;
-	}
-
-	public void setContent_id(int content_id) {
-		this.content_id = content_id;
-	}
-
-	public String getOther_nick() {
-		return other_nick;
-	}
-
-	public void setOther_nick(String other_nick) {
-		this.other_nick = other_nick;
-	}
-
 	public String getProfile() {
 		return profile;
 	}
@@ -151,5 +147,8 @@ public class ChatConTentDTO {
 		this.unread = unread;
 	}
 
-	
+
+
+
+
 }

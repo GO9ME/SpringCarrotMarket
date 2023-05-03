@@ -1,3 +1,9 @@
+
+<%@page import="com.market.carrot.dto.UserDTO"%>
+
+<%@page import="com.market.carrot.dto.ProductDTO"%>
+<%@page import="com.market.carrot.dto.FileDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,18 +22,29 @@
 
 </head>
 
+<%
+List<FileDTO> imglist = (List<FileDTO>) request.getAttribute("imglist");
+ProductDTO dto = (ProductDTO) request.getAttribute("dto");
+int ChatCount = (Integer) request.getAttribute("ChatCount");
+//UserDTO user = (UserDTO) session.getAttribute("userdata");
+List<ProductDTO> listForSix = (List<ProductDTO>) request.getAttribute("listForSix");
+UserDTO userdto = (UserDTO) request.getAttribute("userdto");
+
+%>
+
 <body>
 	<article id="content">
 		<section class="article-images">
 			<div class="swiper mySwiper">
 				<div class="swiper-wrapper">
 					<%
-					for (int i = 0; i < 10; i++) {
+					for (int i = 0; i < imglist.size(); i++) {
+						FileDTO fdto = imglist.get(i);
 					%>
 					<div class="swiper-slide">
-						<img
-							src="https://dnvefa72aowie.cloudfront.net/origin/article/202305/c953640903e392d626ebe73dfc1ecdada2b111a1fe88676d53edde3608877f5e.webp?q=95&s=1440x1440&t=inside"
-							alt="" />
+						<img class="slide_img_size"
+							src="/carrot/upload/<%=fdto.getStoreFilename()%>" alt="" />
+
 					</div>
 					<%
 					}
@@ -50,47 +67,107 @@
 					<div id="article-profile-left">
 
 						<div id="nickname">
-							<a>닉네임</a>
+							<a><%=userdto.getNickname() %></a>
 						</div>
 
-						<div id="region-name">지역 정보 입력칸</div>
+						<div id="region-name"><%=userdto.getSido() + " " + userdto.getSigun() + " " + userdto.getDong() %></div>
 
 					</div>
 				</div>
 
+<%-- 				<%
+				if (!user.getUser_id().equals(dto.getUser_id())) {
+				%> --%>
 				<div id="article-profile-right">
 					<dl id="temperature-wrap">
 
 						<dt>
-							<a href="/carrot/create_chat">문의하기&nbsp;<i class="fa-regular fa-comment"></i>
+
+							<a href="/carrot/create_chat?items_id=<%=dto.getItems_id()%>">문의하기&nbsp;<i
+								class="fa-regular fa-comment"></i>
+
 							</a>
 						</dt>
+
+
 					</dl>
 				</div>
+		<%-- 		<%
+				}
+				%> --%>
 			</div>
 		</section>
 
 		<section class="article-description">
+		<%-- 	<%
+			if (!user.getUser_id().equals(dto.getUser_id())) {
+			%> --%>
 			<div id="like-item">
 				<a><span>관심등록&nbsp;<i class="fa-solid fa-heart"
-					style="font-size: 1.4em; color: red;"></i></span></a>
+						style="font-size: 1.4em; color: red;"></i></span></a>
 			</div>
-			<h1>판매 제품 이름</h1>
+
+		<%-- 	<%
+			}
+			%> --%>
+			<h1><%=dto.getTitle()%></h1>
 			<p id="article-category">
-				카테고리 정보
-				<time>/ 등록 시간</time>
+				<%=dto.getCategory()%>
+				<time>
+					/
+					<%=dto.getUpdated_at()%></time>
+
 			</p>
 			<p id="article-price"
 				style="font-size: 18px; font-weight: bold; color: black;">
-				10,000 원</p>
-			<div id="article-detail">컨텐트 내용</div>
+				<%=dto.getPrice()%></p>
+			<div id="article-detail"><%=dto.getContents()%></div>
 
-			<p id='article-counts'>관심 22 ∙ 채팅 45 ∙ 조회 676</p>
+
+			<p id='article-counts'>
+				관심 22 ∙ 채팅
+				<%=ChatCount%>
+				∙ 조회
+				<%=dto.getViews()%></p>
+
 		</section>
 
 	</article>
 
-	<section class="article-detail-hot-more"></section>
+	<section class="article-detail-hot-more">
+
+		<%-- <jsp:include page="productList.jsp"></jsp:include> --%>
+		<h3>당근마켓 인기중고</h3>
+		<div id="hot-more-link">
+			<a href="/carrot/product/list">더 구경하기</a>
+		</div>
+		<section class="cards-wrap">
+			<%
+			for (int i = 0; i < listForSix.size(); i++) {
+				ProductDTO listdto = listForSix.get(i);
+			%>
+			<article class="card">
+				<a href="" class="card-link ga-click">
+					<div class="card-photo">
+						<img src="/carrot/upload/<%=listdto.getStoreFilename()%>" alt="" />
+					</div>
+					<div class="card-desc">
+						<div class="card-title"><%=listdto.getTitle()%></div>
+						<div class="card-price"><%=listdto.getPrice()%></div>
+						<div class="card-region-name"><%=listdto.getRegion()%></div>
+						<div class="card-counts">
+							<span>관심 </span> ∙ <span>채팅 29</span>
+						</div>
+
+					</div>
+				</a>
+			</article>
+			<%
+			}
+			%>
+		</section>
+
+	</section>
 
 
 	<jsp:include page="../common/footer.jsp"></jsp:include>

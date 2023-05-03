@@ -19,9 +19,10 @@ public class ChatContentRowMapper implements RowMapper<ChatConTentDTO> {
 				rs.getInt(3),
 				rs.getInt(4),
 				rs.getString(5),
-				rs.getTimestamp(6),
-				rs.getString(7),
-				rs.getString(8));
+				rs.getString(6),
+				rs.getTimestamp(7),
+				rs.getString(8),
+				rs.getString(9));
 		return content;
 	}
 	

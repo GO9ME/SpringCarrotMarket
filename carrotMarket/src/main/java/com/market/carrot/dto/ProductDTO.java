@@ -1,6 +1,9 @@
 package com.market.carrot.dto;
 
-import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class ProductDTO {
 	private int items_id;
@@ -11,24 +14,28 @@ public class ProductDTO {
 	private String price;
 	private String status_cd;
 	private int views;
-	private Timestamp registerd_at;
-	private Timestamp updated_at;
+	private Date registerd_at;
+	private Date updated_at;
 	private String use_at;
+	private List<MultipartFile> file;
+
+	private String region;
 	
+	// 첫번째 사진 파일 명 담는곳
+	private String storeFilename;
+
+	// 채팅방 
+	private int chatCount;
+	
+
 	public ProductDTO() {
 		super();
+		this.registerd_at = new Date();
+		this.updated_at = new Date();
 	}
-
-	@Override
-	public String toString() {
-		return "ProductDTO [items_id=" + items_id + ", user_id=" + user_id + ", category=" + category + ", title="
-				+ title + ", contents=" + contents + ", price=" + price + ", status_cd=" + status_cd + ", views="
-				+ views + ", registerd_at=" + registerd_at + ", updated_at=" + updated_at + ", use_at=" + use_at + "]";
-	}
-
 
 	public ProductDTO(int items_id, String user_id, String category, String title, String contents, String price,
-			String status_cd, int views, Timestamp registerd_at, Timestamp updated_at, String use_at) {
+			String status_cd, int views, Date registerd_at, Date updated_at, String use_at) {
 		super();
 		this.items_id = items_id;
 		this.user_id = user_id;
@@ -38,9 +45,54 @@ public class ProductDTO {
 		this.price = price;
 		this.status_cd = status_cd;
 		this.views = views;
-		this.registerd_at = registerd_at;
-		this.updated_at = updated_at;
+		this.registerd_at = new Date();
+		this.updated_at = new Date();
 		this.use_at = use_at;
+	}
+
+	public ProductDTO(int items_id, String user_id, String category, String title, String contents, String price,
+			String status_cd, int views, Date registerd_at, Date updated_at, String use_at,
+			List<MultipartFile> file) {
+		super();
+		this.items_id = items_id;
+		this.user_id = user_id;
+		this.category = category;
+		this.title = title;
+		this.contents = contents;
+		this.price = price;
+		this.status_cd = status_cd;
+		this.views = views;
+		this.registerd_at = new Date();
+		this.updated_at = new Date();
+		this.use_at = use_at;
+		this.file = file;
+	}
+
+
+
+	
+
+
+	@Override
+	public String toString() {
+		return "ProductDTO [category=" + category + ", chatCount=" + chatCount + ", contents=" + contents + ", file="
+				+ file + ", items_id=" + items_id + ", price=" + price + ", region=" + region + ", registerd_at="
+				+ registerd_at + ", status_cd=" + status_cd + ", storeFilename=" + storeFilename + ", title=" + title
+				+ ", updated_at=" + updated_at + ", use_at=" + use_at + ", user_id=" + user_id + ", views=" + views
+				+ "]";
+	}
+
+	public String getStoreFilename() {
+		return storeFilename;
+	}
+
+	public void setStoreFilename(String storeFilename) {
+		this.storeFilename = storeFilename;
+	}
+
+	public void setFile(List<MultipartFile> file) {
+		this.file = file;
+
 	}
 
 	public int getItems_id() {
@@ -107,19 +159,19 @@ public class ProductDTO {
 		this.views = views;
 	}
 
-	public Timestamp getRegisterd_at() {
+	public Date getRegisterd_at() {
 		return registerd_at;
 	}
 
-	public void setRegisterd_at(Timestamp registerd_at) {
+	public void setRegisterd_at(Date registerd_at) {
 		this.registerd_at = registerd_at;
 	}
 
-	public Timestamp getUpdated_at() {
+	public Date getUpdated_at() {
 		return updated_at;
 	}
 
-	public void setUpdated_at(Timestamp updated_at) {
+	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
 
@@ -131,11 +183,33 @@ public class ProductDTO {
 		this.use_at = use_at;
 	}
 
+	public List<MultipartFile> getFile() {
+		return file;
+	}
+
+	public void setFiles(List<MultipartFile> file) {
+		this.file = file;
+	}
+
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public int getChatCount() {
+		return chatCount;
+	}
+
+	public void setChatCount(int chatCount) {
+		this.chatCount = chatCount;
+	}
 	
 	
 	
-	
-	
+
+
 }
-
-

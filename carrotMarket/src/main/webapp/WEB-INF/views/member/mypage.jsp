@@ -130,7 +130,9 @@
 					<h4>채팅</h4>
 				</div>
 				<div>
-					<h4>회원탈퇴</h4>
+					<h4>
+						<a href="javascript:clkBtn()" id="delete">회원탈퇴</a>
+					</h4>
 				</div>
 			</div>
 		</div>
@@ -364,6 +366,21 @@
 			var modal = $(this)
 			modal.find('.modal-body input').val(recipient)
 		})
+		
+		/* 탈퇴 */
+		function clkBtn() {
+			var result = confirm("탈퇴 후 서비스 이용이 불가능합니다. 정말로 탈퇴하시겠습니까?");
+	        if(result){
+	        	var out = prompt("비밀번호를 입력해주세요");
+	        	console.log(out);
+	        	if(out=='<%=user.getPassword()%>'){
+	        		console.log("<%=user.getUser_id()%>");
+	        		window.location.href = "/carrot/member/delete?id=<%=user.getUser_id()%>";
+	        	}else{
+					alert("비밀번호가 일치하지 않습니다.");
+	        	}
+	        }
+		}
 	</script>
 
 
