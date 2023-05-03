@@ -24,7 +24,6 @@ public interface ProductService {
 
 	ProductDTO readProduct(int items_id);
 
-
 	int readChatCount(int items_id);
 
 	List<ProductDTO> readItemsList();

@@ -35,6 +35,7 @@ public class ProductServiceImpl implements ProductService {
 		return 0;
 	}
 
+
 	@Override
 	public int delete(String items_id) {
 		return 0;
@@ -66,6 +67,7 @@ public class ProductServiceImpl implements ProductService {
 	public int readChatCount(int items_id) {
 		return dao.getCountChatFromItem(items_id);
 	}
+
 
 	@Override
 	public List<ProductDTO> readItemsList() {
