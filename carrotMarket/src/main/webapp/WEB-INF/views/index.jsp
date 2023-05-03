@@ -44,7 +44,7 @@
 						<p>동네 주민들과 가깝고 따뜻한 거래를 지금 경험해보세요.</p>
 					</article>
 					<div class="item-box__button">
-						<button>인기매물 보기</button>
+						<button onclick="location.href='/carrot/product/list'">인기매물 보기</button>
 						<button>믿을 수 있는 중고거래</button>
 					</div>
 				</div>
@@ -119,7 +119,7 @@
 	</section>
 
 	<!-- main page 5 중고거리 인기매물 리스트-->
-	<section class="home-popular background-gray">
+	<!-- <section class="home-popular background-gray">
 		<div class="home-popular__title">
 			<h2>중고거래 인기매물</h2>
 		</div>
@@ -223,7 +223,7 @@
 			<li class="home-search__item">알바</li>
 			<li class="home-search__item">오토바이</li>
 		</ul>
-	</section>
+	</section> -->
 
 
 	<jsp:include page="./common/footer.jsp"></jsp:include>

@@ -71,7 +71,8 @@ public class ChatDAOImpl implements ChatDAO {
 					Integer.class);
 			System.out.println("items_id " + items_id);
 			sql = "insert into chat_content (user_id, chat_id, items_id, other_nick, content, send_at, type, use_at) "
-					+ "values(?,?,?,?,?,now(),?,'Y')";
+					+ "values(?,?,?,?,?,sysdate(),?,'Y')";
+
 			return mytemplate.update(sql, dto.getUser_id(), dto.getChat_id(), items_id,dto.getOther_nick(), dto.getContent(), "t");
 		} catch (DataAccessException e) {
 			// TODO Auto-generated catch block
@@ -83,7 +84,9 @@ public class ChatDAOImpl implements ChatDAO {
 	@Override
 	public int createChatRoom(int items_id) {
 		// TODO Auto-generated method stub
-		String sql = "INSERT INTO chat VALUES (null,?,now())";
+
+		String sql = "INSERT INTO chat VALUES (null,?,sysdate())";
+
 		int result = mytemplate.update(sql, items_id);
 
 		return result;
@@ -96,7 +99,8 @@ public class ChatDAOImpl implements ChatDAO {
 		int result = 0;
 		if (chat_id > 0) {
 			String sql = "insert into chat_content (user_id, chat_id, items_id, other_nick, content, send_at, type, use_at) "
-					+ "values(?,?,?,?,'해당 제품 관심있어서 연락드립니다' ,now(), 'T' ,'Y')";
+					+ "values(?,?,?,?,'해당 제품 관심있어서 연락드립니다' ,sysdate(), 'T' ,'Y')";
+
 
 			result = mytemplate.update(sql, user_id, chat_id, items_id, recv_id);
 		}

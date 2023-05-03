@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.market.carrot.dto.FileDTO;
 import com.market.carrot.dto.ProductDTO;
+import com.market.carrot.dto.UserDTO;
+
 
 public interface ProductService {
 	int insert(ProductDTO product);
@@ -21,6 +23,19 @@ public interface ProductService {
 	List<FileDTO> readImgFile(int items_id);
 
 	ProductDTO readProduct(int items_id);
+
+
+	int readChatCount(int items_id);
+
+	List<ProductDTO> readItemsList();
+	
+	List<ProductDTO> getProductList();
+	
+	List<ProductDTO> interestlist();
+	
+	UserDTO readUserData(int items_id);
+	
+
 
 	int readChatCount(int items_id);
 }

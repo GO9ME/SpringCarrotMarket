@@ -2,6 +2,8 @@ package com.market.carrot.dto;
 
 import java.sql.Timestamp;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class ChatConTentDTO {
 	private int content_id;
 	private String user_id;
@@ -9,6 +11,7 @@ public class ChatConTentDTO {
 	private int items_id;
 	private String other_nick;
 	private String content;
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private Timestamp send_at;
 	private String type;
 	private String use_at;
