@@ -6,6 +6,7 @@ import com.market.carrot.dto.FileDTO;
 import com.market.carrot.dto.ProductDTO;
 import com.market.carrot.dto.UserDTO;
 
+
 public interface ProductService {
 	int insert(ProductDTO product);
 
@@ -23,6 +24,7 @@ public interface ProductService {
 
 	ProductDTO readProduct(int items_id);
 
+
 	int readChatCount(int items_id);
 
 	List<ProductDTO> readItemsList();
@@ -34,4 +36,6 @@ public interface ProductService {
 	UserDTO readUserData(int items_id);
 	
 
+
+	int readChatCount(int items_id);
 }

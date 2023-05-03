@@ -24,10 +24,8 @@ $(document).ready(function(){
     //제출버튼 클릭시 중복체크여부
     var fin = document.getElementById('fin')
     fin.addEventListener('click',function(e) {
-        if(isIdChecked==false){
-	    	e.preventDefault();
-        	alert("id 중복체크를 해주세요");
-        }
+
+       // }
     });// 다음버튼
 })//end ready
 	

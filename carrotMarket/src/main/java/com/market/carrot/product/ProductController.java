@@ -50,22 +50,27 @@ public class ProductController {
 		}
 		
 		service.insert(product, fileDtoList);
+
 		return "redirect:/product/list";
+
 	}
 	
 	@RequestMapping("/product/detail")
 	public ModelAndView insertPost(int items_id, HttpSession session) throws FileNotFoundException {
 		UserDTO user = (UserDTO) session.getAttribute("userdata");
 		List<FileDTO> imglist = service.readImgFile(items_id);
+
 		int ChatCount = service.readChatCount(items_id);
 		ProductDTO dto = service.readProduct(items_id);
 		List<ProductDTO> listForSix = service.readItemsList();
 		UserDTO userdto = service.readUserData(items_id);
 		
+
 		ModelAndView mav = new ModelAndView("product/productDetail");
 		mav.addObject("imglist",imglist);
 		mav.addObject("dto",dto);
 		mav.addObject("ChatCount",ChatCount);
+
 		mav.addObject("listForSix",listForSix);
 		mav.addObject("userdto",userdto);
 		
@@ -89,5 +94,6 @@ public class ProductController {
 		mav.setViewName("product/productInterestList");
 		return mav;
 	}
+
 
 }

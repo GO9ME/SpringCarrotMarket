@@ -47,7 +47,9 @@ public class ChatController {
 
 		// 메시지 리스트
 		List<ChatConTentDTO> list = service.messageList(dto);
-		mav.addObject("list", list);
+
+		System.out.println("list : " + list);
+
 
 		return mav;
 	}
@@ -98,6 +100,8 @@ public class ChatController {
 		
 		String nick = user.getUser_id();
 		
+
+
 		ChatConTentDTO dto = new ChatConTentDTO();
 		dto.setChat_id(room);
 		dto.setUser_id(nick);

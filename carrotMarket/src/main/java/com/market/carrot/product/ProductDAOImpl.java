@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.market.carrot.dto.FileDTO;
 import com.market.carrot.dto.ProductDTO;
 import com.market.carrot.dto.UserDTO;
+
 import com.market.carrot.rowmapper.FileRowMapper;
 import com.market.carrot.rowmapper.ProductRowMapper;
 import com.market.carrot.rowmapper.UserRowMapper;
@@ -217,4 +218,5 @@ public class ProductDAOImpl implements ProductDAO {
 						+ "on a.user_id = d.user_id" + "order by  ifnull(b.cnt,0) desc",
 				new ProductRowMapper());
 	}
+
 }

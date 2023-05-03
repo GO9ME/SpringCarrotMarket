@@ -1,12 +1,12 @@
 package com.market.carrot.member;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.market.carrot.dto.UserDTO;
+import com.market.carrot.member.delete.DeleteService;
 import com.market.carrot.member.signup.SignUpService;
 
 /*
@@ -14,6 +14,7 @@ import com.market.carrot.member.signup.SignUpService;
 	회원가입
 	회원수정
 	마이페이지
+	회원탈퇴
 */
 @Controller
 public class MemberController {
@@ -66,8 +67,15 @@ public class MemberController {
 	public ModelAndView mypage() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/mypage");
-
 		return mav;
+	}
+	
+	@Autowired
+	DeleteService DS;
+	@RequestMapping("/member/delete")
+	public String delete(String id) {
+		DS.delete(id);
+		return  "redirect:/logout";
 	}
 	
 }

@@ -18,6 +18,7 @@ public class ProductDTO {
 	private Date updated_at;
 	private String use_at;
 	private List<MultipartFile> file;
+
 	private String region;
 	
 	// 첫번째 사진 파일 명 담는곳
@@ -26,6 +27,7 @@ public class ProductDTO {
 	// 채팅방 
 	private int chatCount;
 	
+
 	public ProductDTO() {
 		super();
 		this.registerd_at = new Date();
@@ -90,6 +92,7 @@ public class ProductDTO {
 
 	public void setFile(List<MultipartFile> file) {
 		this.file = file;
+
 	}
 
 	public int getItems_id() {
@@ -188,6 +191,7 @@ public class ProductDTO {
 		this.file = file;
 	}
 
+
 	public String getRegion() {
 		return region;
 	}
@@ -206,5 +210,6 @@ public class ProductDTO {
 	
 	
 	
+
 
 }

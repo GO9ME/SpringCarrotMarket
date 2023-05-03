@@ -1,4 +1,6 @@
+
 <%@page import="com.market.carrot.dto.UserDTO"%>
+
 <%@page import="com.market.carrot.dto.ProductDTO"%>
 <%@page import="com.market.carrot.dto.FileDTO"%>
 <%@page import="java.util.List"%>
@@ -19,6 +21,7 @@
 	rel="stylesheet">
 
 </head>
+
 <%
 List<FileDTO> imglist = (List<FileDTO>) request.getAttribute("imglist");
 ProductDTO dto = (ProductDTO) request.getAttribute("dto");
@@ -26,6 +29,7 @@ int ChatCount = (Integer) request.getAttribute("ChatCount");
 //UserDTO user = (UserDTO) session.getAttribute("userdata");
 List<ProductDTO> listForSix = (List<ProductDTO>) request.getAttribute("listForSix");
 UserDTO userdto = (UserDTO) request.getAttribute("userdto");
+
 %>
 
 <body>
@@ -40,6 +44,7 @@ UserDTO userdto = (UserDTO) request.getAttribute("userdto");
 					<div class="swiper-slide">
 						<img class="slide_img_size"
 							src="/carrot/upload/<%=fdto.getStoreFilename()%>" alt="" />
+
 					</div>
 					<%
 					}
@@ -77,8 +82,10 @@ UserDTO userdto = (UserDTO) request.getAttribute("userdto");
 					<dl id="temperature-wrap">
 
 						<dt>
+
 							<a href="/carrot/create_chat?items_id=<%=dto.getItems_id()%>">문의하기&nbsp;<i
 								class="fa-regular fa-comment"></i>
+
 							</a>
 						</dt>
 
@@ -99,6 +106,7 @@ UserDTO userdto = (UserDTO) request.getAttribute("userdto");
 				<a><span>관심등록&nbsp;<i class="fa-solid fa-heart"
 						style="font-size: 1.4em; color: red;"></i></span></a>
 			</div>
+
 		<%-- 	<%
 			}
 			%> --%>
@@ -108,22 +116,26 @@ UserDTO userdto = (UserDTO) request.getAttribute("userdto");
 				<time>
 					/
 					<%=dto.getUpdated_at()%></time>
+
 			</p>
 			<p id="article-price"
 				style="font-size: 18px; font-weight: bold; color: black;">
 				<%=dto.getPrice()%></p>
 			<div id="article-detail"><%=dto.getContents()%></div>
 
+
 			<p id='article-counts'>
 				관심 22 ∙ 채팅
 				<%=ChatCount%>
 				∙ 조회
 				<%=dto.getViews()%></p>
+
 		</section>
 
 	</article>
 
 	<section class="article-detail-hot-more">
+
 		<%-- <jsp:include page="productList.jsp"></jsp:include> --%>
 		<h3>당근마켓 인기중고</h3>
 		<div id="hot-more-link">
@@ -154,6 +166,7 @@ UserDTO userdto = (UserDTO) request.getAttribute("userdto");
 			}
 			%>
 		</section>
+
 	</section>
 
 

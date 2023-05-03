@@ -2,10 +2,6 @@ window.addEventListener('load', () => {
 	var nextBtn = document.querySelector("#next");
 	var sendBtn = document.querySelector("#sendMessage");
 	
-	nextBtn.addEventListener('click',()=>{
-		location.href='/carrot/member/signup3';
-		return false;
-	})
 	
 	sendBtn.addEventListener('click',()=>{
 		/* 기본시간 설정 부분 3(분)입니다. */
