@@ -44,9 +44,9 @@
 					<div id="gnb" class="gnb-wrap">
 						<div class="gnb-inner">
 							<ul>
-								<li class="active"><a
-									href="/carrot/product/productlist"><button
-											class="buttons-menu__list">상품목록</button></a></li>
+								<li class="active"><a href="/carrot/product/list">
+										<button class="buttons-menu__list">상품목록</button>
+								</a></li>
 								<li><a href=""><button class="buttons-menu__listk">인기상품</button></a></li>
 							</ul>
 						</div>
@@ -65,7 +65,8 @@
 				} else {
 				%>
 				<div class="buttons-menu">
-					<button class="buttons-menu__store" data-toggle="modal" data-target="#exampleModal" data-whatever="">상품등록</button>
+					<button class="buttons-menu__store" data-toggle="modal"
+						data-target="#exampleModal" data-whatever="">상품등록</button>
 				</div>
 				<%
 				}

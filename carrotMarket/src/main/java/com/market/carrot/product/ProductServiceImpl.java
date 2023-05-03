@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.market.carrot.dto.FileDTO;
 import com.market.carrot.dto.ProductDTO;
+import com.market.carrot.dto.UserDTO;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -64,6 +65,29 @@ public class ProductServiceImpl implements ProductService {
 		return dao.getCountChatFromItem(items_id);
 	}
 	
+	@Override
+	public List<ProductDTO> readItemsList() {
+		// TODO Auto-generated method stub
+		return dao.selectTopItem();
+	}
+	
+	@Override
+	public List<ProductDTO> getProductList() {
+		// TODO Auto-generated method stub
+		return dao.getProductList();
+	}
 
+	
+	@Override
+	public List<ProductDTO> interestlist() {
+		// TODO Auto-generated method stub
+		return dao.interestlist();
+	}
+	
+	@Override
+	public UserDTO readUserData(int items_id) {
+		// TODO Auto-generated method stub
+		return dao.readUserData(items_id);
+	}
 
 }

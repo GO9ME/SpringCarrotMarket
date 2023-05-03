@@ -1,17 +1,16 @@
 <%@page import="com.market.carrot.dto.ProductDTO"%>
 <%@page import="java.util.List"%>
-
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<jsp:include page="../common/header.jsp"></jsp:include>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>당근마켓 중고거래 | 당신 근처의 당근마켓</title>
 <meta name="description"
 	content="당근마켓에서 거래되는 인기 중고 매물을 소개합니다. 지금 당근마켓에서 거래되고 있는 다양한 매물을 구경해보세요." />
 <link rel="author" href="당근마켓" />
@@ -56,13 +55,12 @@
 	href="https://d1unjqcospf8gs.cloudfront.net/assets/home/articles/hot-05663f2aed8868551a676d610d7322afa2255ed6964e18672346c35fe876bcc4.css" />
 <script
 	src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base-4b55f04bb2798d1f6aa4e078c0ad3504ef4993ad4123005ec35dde545e5788bd.js"></script>
-<link href="/carrot/common/css/style_product.css" rel="stylesheet"
-	type="text/css">
-
+<link href="/carrotMarket/common/css/style_product.css" rel="stylesheet" type="text/css">
+<jsp:include page="../common/header.jsp"></jsp:include>
 </head>
 <body class="hoian-kr">
 	<%
-	List<ProductDTO> productlist = (List<ProductDTO>) request.getAttribute("productlist");
+	List<ProductDTO> interestlist = (List<ProductDTO>) request.getAttribute("interestlist");
 	%>
 	<section id="content">
 		<h1 class="head-title" id="hot-articles-head-title">중고거래 인기매물</h1>
@@ -88,7 +86,8 @@
 				<option value="전라남도">전라남도</option>
 				<option value="경상북도">경상북도</option>
 				<option value="경상남도">경상남도</option>
-				<option value="제주특별자치도">제주특별자치도</option></select> <select name="region2"
+				<option value="제주특별자치도">제주특별자치도</option></select> 
+				<select name="region2"
 				id="region2" disabled="disabled"
 				onchange="changeRegion(&#39;r2&#39;, this.value)"
 				class="hot-articles-nav-select"><option value="">동네를
@@ -110,39 +109,34 @@
 				<option value="경상북도">경상북도</option>
 				<option value="경상남도">경상남도</option>
 				<option value="제주특별자치도">제주특별자치도</option></select>
-			<div class="search">
-				<input type="text" placeholder="Searah.." class="ser-txt"> <input
-					type="submit" value="검색" class="btn-ser">
-			</div>
+				<div class="search">
+					<input type="text" placeholder="Searah.." class="ser-txt">
+					<input type="submit" value="검색" class="btn-ser">
+				</div>
 		</nav>
 		<section class="cards-wrap">
-			<%
-			int size = productlist.size();
-
-			for (int i = 0; i < size; i++) {
-				ProductDTO product = productlist.get(i);
-			%>
+			<% 
+							int size = interestlist.size();
+							for(int i = 0; i < size; i++){
+								ProductDTO interest = interestlist.get(i);%>
 			<article class="card-top ">
 				<a class="card-link " data-event-label="572387191"
-					href="/carrot/product/detail?items_id=<%=product.getItems_id()%>">
+					href="/articles/572387191">
 					<div class="card-photo ">
-						<img alt=""
-							src="/carrot/upload/<%=product.getStoreFilename()%>" />
+						<img alt="삼성티비팝니다 거치대포함"
+							src="https://dnvefa72aowie.cloudfront.net/origin/article/202304/d44191172ec7c42f12678b69f1946d16ae448bf6de75b037221326a735c74e60.jpg?q=82&amp;s=300x300&amp;t=crop" />
 					</div>
 					<div class="card-desc">
-						<h2 class="card-title"><%=product.getTitle()%></h2>
-						<div class="card-price "><%=product.getPrice()%>원
-						</div>
-						<div class="card-region-name"><%=product.getRegion()%></div>
+						<h2 class="card-title"><%=interest.getTitle() %></h2>
+						<div class="card-price "><%=interest.getPrice() %>원</div>
+						<div class="card-region-name"><%=interest.getSigun() %></div>
 						<div class="card-counts">
-							<span>관심 : 0 </span> ∙ <span>채팅 : <%=product.getChatCount()%></span>
+							<span>관심 : <%= interest.getLikeCount() %> </span> ∙ <span>채팅 : <%= interest.getChatCount() %></span>
 						</div>
 					</div>
 				</a>
 			</article>
-			<%
-			}
-			%>
+			<% }%>
 		</section>
 
 	</section>

@@ -18,7 +18,14 @@ public class ProductDTO {
 	private Date updated_at;
 	private String use_at;
 	private List<MultipartFile> file;
+	private String region;
+	
+	// 첫번째 사진 파일 명 담는곳
+	private String storeFilename;
 
+	// 채팅방 
+	private int chatCount;
+	
 	public ProductDTO() {
 		super();
 		this.registerd_at = new Date();
@@ -59,12 +66,30 @@ public class ProductDTO {
 		this.file = file;
 	}
 
+
+
+	
+
+
 	@Override
 	public String toString() {
-		return "ProductDTO [items_id=" + items_id + ", user_id=" + user_id + ", category=" + category + ", title="
-				+ title + ", contents=" + contents + ", price=" + price + ", status_cd=" + status_cd + ", views="
-				+ views + ", registerd_at=" + registerd_at + ", updated_at=" + updated_at + ", use_at=" + use_at
-				+ ", file=" + file + "]";
+		return "ProductDTO [category=" + category + ", chatCount=" + chatCount + ", contents=" + contents + ", file="
+				+ file + ", items_id=" + items_id + ", price=" + price + ", region=" + region + ", registerd_at="
+				+ registerd_at + ", status_cd=" + status_cd + ", storeFilename=" + storeFilename + ", title=" + title
+				+ ", updated_at=" + updated_at + ", use_at=" + use_at + ", user_id=" + user_id + ", views=" + views
+				+ "]";
+	}
+
+	public String getStoreFilename() {
+		return storeFilename;
+	}
+
+	public void setStoreFilename(String storeFilename) {
+		this.storeFilename = storeFilename;
+	}
+
+	public void setFile(List<MultipartFile> file) {
+		this.file = file;
 	}
 
 	public int getItems_id() {
@@ -162,5 +187,24 @@ public class ProductDTO {
 	public void setFiles(List<MultipartFile> file) {
 		this.file = file;
 	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public int getChatCount() {
+		return chatCount;
+	}
+
+	public void setChatCount(int chatCount) {
+		this.chatCount = chatCount;
+	}
+	
+	
+	
 
 }
