@@ -34,5 +34,11 @@ public class ChatServiceImpl implements ChatService {
 
 		return dao.messageSendInlist(dto);
 	}
-
+	
+	public int createChatRoom(String user_id, String items_id) {
+		
+		return dao.createChatRoom(user_id, items_id);
+	}
+	
+	
 }

@@ -90,7 +90,7 @@ pageEncoding="UTF-8"%>
               $(".chat_list_box")
                 .not(".chat_list_box_chat_list_box" + room)
                 .removeClass("active_chat");
-              $(".caht_list_box" + room).addClass("active_chat");
+              $(".chat_list_box" + room).addClass("active_chat");
 
               let send_msg = "";
               send_msg += '<div class="type_msg">';
@@ -169,6 +169,7 @@ pageEncoding="UTF-8"%>
 
               MessageContentList(room);
             });
+            
           },
         });
       };

@@ -5,11 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" media="all"
-	href="test.css"/>
-	<link rel="stylesheet" media="all"
-	href="img.css"/>
-	<link href="/carrotMarket/assets/css/style_detail_product.css" rel="stylesheet" type="text/css">
+<jsp:include page="../common/header.jsp"></jsp:include>
+<link rel="stylesheet" media="all" href="test.css" />
+<link rel="stylesheet" media="all" href="img.css" />
+<link rel="stylesheet" href="/carrot/common/css/style_detail_product.css">
 </head>
 <body class="hoian-kr">
 	<article id="content" data-id="569226822">
@@ -133,7 +132,7 @@
 			</div>
 		</section>
 		<section id="article-profile">
-			<a id="article-profile-link" >
+			<a id="article-profile-link">
 				<h3 class="hide">프로필</h3>
 				<div class="space-between">
 					<div style="display: flex;">
@@ -292,9 +291,9 @@
 		</section>
 	</section>
 	<script type="text/javascript">
-
-	$('#article-profile-right').onclick( function(event) {
-		alert('작동');})
+		$('#article-profile-right').onclick(function(event) {
+			alert('작동');
+		})
 	</script>
 </body>
 </html>

@@ -70,6 +70,13 @@ public class MessageController {
 
 		return mav;
 	}
+	
+	@RequestMapping(value = "/create_chat")
+	public ModelAndView createChatRoom(String items_id, HttpSession session) {
+		ModelAndView mav = new ModelAndView("redirect:/chat");
+	
+		return mav;
+	}
 
 	// 메시지 리스트에서 메세지 보내기
 	@ResponseBody
