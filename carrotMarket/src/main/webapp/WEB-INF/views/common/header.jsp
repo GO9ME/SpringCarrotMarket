@@ -1,9 +1,12 @@
+<%@page import="com.market.carrot.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script
@@ -13,8 +16,6 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <script src="https://kit.fontawesome.com/700619e3a2.js"
 	crossorigin="anonymous"></script>
@@ -26,6 +27,10 @@
 <title>당신 근처의 당근마켓</title>
 </head>
 <body>
+	<%
+	UserDTO user = (UserDTO) session.getAttribute("userdata");
+	%>
+
 	<!-- header part -->
 	<header>
 		<div class="header__inner">
@@ -47,10 +52,24 @@
 						</div>
 					</div>
 				</div>
+				<%
+				if (user != null) {
+				%>
+
 				<div class="buttons-menu">
 					<button class="buttons-menu__store"
 						onclick="location.href='/carrot/product/register'">상품등록</button>
 				</div>
+
+				<%
+				} else {
+				%>
+				<div class="buttons-menu">
+					<button class="buttons-menu__store" data-toggle="modal" data-target="#exampleModal" data-whatever="">상품등록</button>
+				</div>
+				<%
+				}
+				%>
 
 
 			</div>
@@ -62,21 +81,54 @@
 				</button>
 			</div>
 			<div class="buttons">
+				<%
+				if (user != null) {
+				%>
+
+				<div class="buttons-menu">
+					<button class="buttons-menu__store"
+						onclick="location.href='/carrot/member/mypage'">마이페이지</button>
+				</div>
+
+				<%
+				}
+				%>
 				<div class="buttons-chat">
+					<%
+					if (user == null) {
+					%>
+					<button type="button" class="buttons-chat__button"
+						data-toggle="modal" data-target="#exampleModal" data-whatever="">당근채팅</button>
+					<%
+					} else {
+					%>
 					<button class="buttons-chat__button"
-						onclick="location.href='/carrot/member/chat'">당근채팅</button>
+						onclick="location.href='/carrot/chat'">당근채팅</button>
+					<%
+					}
+					%>
 				</div>
 				<!-- 로그아웃 시  -->
+				<%
+				if (user == null) {
+				%>
 				<div class="buttons-login">
 
 					<button type="button" class="buttons-login__button"
-						data-toggle="modal" data-target="#exampleModal"
-						data-whatever="@mdo">로그인</button>
+						data-toggle="modal" data-target="#exampleModal" data-whatever="">로그인</button>
 				</div>
+				<%
+				} else {
+				%>
 				<!-- 로그인 시  -->
-				<div class="buttons-logout">
-					<button class="buttons-logout__button">로그아웃</button>
+
+				<div class="buttons-login">
+					<button type="button" class="buttons-logout__button"
+						onclick="location.href='/carrot/logout'">로그아웃</button>
 				</div>
+				<%
+				}
+				%>
 			</div>
 			<div class="tablet-buttons">
 				<img src="/carrot/images/search-icon-orange.svg"
@@ -87,7 +139,7 @@
 
 
 	</header>
-<jsp:include page="login.jsp"></jsp:include>
+	<jsp:include page="login.jsp"></jsp:include>
 
 
 

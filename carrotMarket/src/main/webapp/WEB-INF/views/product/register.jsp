@@ -5,81 +5,79 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="../common/header.jsp"></jsp:include>
-<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    jQuery 추가
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    부트스트랩 JS 추가
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-        crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/700619e3a2.js" crossorigin="anonymous"></script>
- -->
-<link rel="stylesheet" href="/carrotMarket/assets/css/style_product.css" />
+
+<link rel="stylesheet" href="/carrot/common/css/style_product.css" />
 
 </head>
 
 <body>
 	<section class="product-register">
-		
-		<div class="container mt-3">
-			<h2>내 물건 팔기</h2>
-			<div class="row">
-				<div class="col-2">
-					<div class="dropzone">
-						<input type="file" name="file" id="file" class="inputfile">
-						<label for="file"><i class="fa-solid fa-file-image"></i>파일
-							선택</label>
+		<form method="post" action="/carrot/product/post">
+			<div class="container mt-3">
+				<h2>내 물건 팔기</h2>
+				<input type="hidden" name="user_id" value="test">
+				<div class="row">
+					<div class="col-2">
+						<div class="dropzone">
+							<input type="file" name="file" id="file" class="inputfile">
+							<label for="file"><i class="fa-solid fa-file-image"></i>파일
+								선택</label>
+						</div>
+					</div>
+					<div class="col-10">
+						<div class="row">
+							<div class="thumbnail"></div>
+						</div>
 					</div>
 				</div>
-				<div class="col-10">
-					<div class="row">
-						<div class="thumbnail"></div>
+			
+			
+				<input type="text" class="form-control mt-2" id="title" name="title"
+					placeholder="제목">
+				<button type="button"
+					class="btn btn-sm btn-block text-left mt-2 category-btn"
+					data-toggle="modal" data-target="#categoryModal">
+					<span id="selectedCategory">카테고리 선택</span><i
+						class="fa-solid fa-chevron-right right-arrow-icon"></i>
+				</button>
+				<!-- 모달창 -->
+				<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog"
+					aria-labelledby="categoryModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<ul class="list-group">
+								<li class="list-group-item list-group-item-action"  onclick="document.querySelector('#categoryInput').value = '디지털/가전';">디지털/가전</li>
+								<li class="list-group-item list-group-item-action"  onclick="document.querySelector('#categoryInput').value = '가구/인테리어';">가구/인테리어</li>
+								<li class="list-group-item list-group-item-action"  onclick="document.querySelector('#categoryInput').value = '유아동/유아도서';">유아동/유아도서</li>
+								<li class="list-group-item list-group-item-action"  onclick="document.querySelector('#categoryInput').value = '생활/가공식품';">생활/가공식품</li>
+								<li class="list-group-item list-group-item-action"  onclick="document.querySelector('#categoryInput').value = '스포츠/레저';">스포츠/레저</li>
+								<li class="list-group-item list-group-item-action"  onclick="document.querySelector('#categoryInput').value = '여성패션/잡화';">여성패션/잡화</li>
+								<li class="list-group-item list-group-item-action"  onclick="document.querySelector('#categoryInput').value = '남성패션/잡화';">남성패션/잡화</li>
+								<li class="list-group-item list-group-item-action"  onclick="document.querySelector('#categoryInput').value = '뷰티/미용';">뷰티/미용</li>
+								<li class="list-group-item list-group-item-action"  onclick="document.querySelector('#categoryInput').value = '반려동물용품';">반려동물용품</li>
+								<li class="list-group-item list-group-item-action"  onclick="document.querySelector('#categoryInput').value = '서비스/상품권/아이템';">서비스/상품권/아이템</li>
+								<li class="list-group-item list-group-item-action"  onclick="document.querySelector('#categoryInput').value = '기타 중고물품';">기타 중고물품</li>
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
-		
-		
-			<input type="text" class="form-control mt-2" id="title"
-				placeholder="제목">
-			<button type="button"
-				class="btn btn-sm btn-block text-left mt-2 category-btn"
-				data-toggle="modal" data-target="#categoryModal">
-				<span id="selectedCategory">카테고리 선택</span><i
-					class="fa-solid fa-chevron-right right-arrow-icon"></i>
-			</button>
-			<!-- 모달창 -->
-			<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog"
-				aria-labelledby="categoryModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<ul class="list-group">
-							<li class="list-group-item list-group-item-action">카테고리 1</li>
-							<li class="list-group-item list-group-item-action">카테고리 2</li>
-							<li class="list-group-item list-group-item-action">카테고리 3</li>
-							<li class="list-group-item list-group-item-action">카테고리 4</li>
-							<li class="list-group-item list-group-item-action">카테고리 5</li>
-							<li class="list-group-item list-group-item-action">카테고리 6</li>
-							<li class="list-group-item list-group-item-action">카테고리 7</li>
-							<li class="list-group-item list-group-item-action">카테고리 8</li>
-							<li class="list-group-item list-group-item-action">카테고리 9</li>
-						</ul>
-					</div>
+				
+				<input type="hidden" id="categoryInput" name="category">
+			
+				<input type="text" class="form-control mt-2" id="price" name="price"
+					placeholder="￦ 가격(선택사항)">
+				<textarea class="form-control mt-2" id="content" name="contents"
+					placeholder="xx동에 올릴 게시글 내용을 작성해주세요(가품 및 판매금지 물품은 게시가 제한될 수 있어요.)"
+					rows="8"></textarea>
+					<input type="hidden" name="status_cd" value="1">
+					<input type="hidden" name="use_at" value="1">
+					
+					
+				<div class="text-center">
+					<button class="btn btn-light mt-3" id="send">완료</button>
 				</div>
 			</div>
-		
-			<input type="text" class="form-control mt-2" id="price"
-				placeholder="￦ 가격(선택사항)">
-			<textarea class="form-control mt-2" id="content"
-				placeholder="xx동에 올릴 게시글 내용을 작성해주세요(가품 및 판매금지 물품은 게시가 제한될 수 있어요.)"
-				rows="8"></textarea>
-			<div class="text-center">
-				<button class="btn btn-light mt-3" id="send">완료</button>
-			</div>
-		</div>
-		
+		</form>
 		<!-- 모달창 -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
@@ -101,7 +99,7 @@
 			</div>
 		</div>
 		
-		<script type="text/javascript" src="/carrotMarket/assets/js/product.js"></script>
+		<script type="text/javascript" src="/carrot/common/js/product.js"></script>
 	</section>
 
 	<jsp:include page="../common/footer.jsp"></jsp:include>

@@ -1,10 +1,13 @@
 package com.market.carrot.product;
 
-import java.util.List;
+
+import java.sql.Timestamp;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
@@ -25,6 +28,7 @@ public class ProductDAOImpl implements ProductDAO {
 						+ ") AS C\r\n" + "ON a.items_id = C.items_id\r\n" + "left join  user as D\r\n"
 						+ "on a.user_id = d.user_id",
 				new ProductRowMapper());
+
 	}
 
 }
