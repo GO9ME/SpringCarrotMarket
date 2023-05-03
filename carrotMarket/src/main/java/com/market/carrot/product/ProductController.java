@@ -25,7 +25,7 @@ public class ProductController {
 	
 	@RequestMapping("/product/post")
 	public String insertPost(ProductDTO product) {
-		service.insert(product);
+//		service.insert(product);
 		System.out.println(product);
 		return "product/list";
 	}
