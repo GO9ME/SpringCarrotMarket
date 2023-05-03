@@ -1,50 +1,34 @@
 package com.market.carrot.product;
 
+
 import java.sql.Timestamp;
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.market.carrot.dto.ProductDTO;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
 	@Autowired
-	private JdbcTemplate template;
+	JdbcTemplate template;
 
 	@Override
-	public int insert(ProductDTO product) {
-		String sql = "INSERT INTO items VALUES(null,?,?,?,?,?,?,?,?,?,?);";
-		return template.update(sql, product.getUser_id(), product.getCategory(), product.getTitle(),
-				product.getContents(), product.getPrice(), product.getStatus_cd(), product.getViews(),
-				new Timestamp(System.currentTimeMillis()), new Timestamp(System.currentTimeMillis()),
-				product.getUse_at());
-	}
-
-	@Override
-	public List<ProductDTO> select() {
+	public List<ProductDTO> getProductList() {
 		// TODO Auto-generated method stub
-		return null;
-	}
+		// return template.query("select * from items", new ProductRowMapper());
+		return template.query(
+				"select a.items_id, a.user_id, a.category, a.title, a.contents, a.price, a.status_cd, a.views, a.registerd_at, a.updated_at, a.use_at, d.sigun\r\n"
+						+ ", ifnull(b.cnt,0) as likeCount\r\n" + ", ifnull(c.cnt,0) as chatCount\r\n"
+						+ "from items as A\r\n" + "LEFT OUTER JOIN (\r\n" + "    SELECT items_id, COUNT(*) AS CNT\r\n"
+						+ "    FROM interest\r\n" + "    GROUP BY items_id\r\n" + ") AS b\r\n"
+						+ "ON a.items_id = b.items_id\r\n" + "LEFT OUTER JOIN (\r\n"
+						+ "    SELECT items_id, COUNT(*) AS CNT\r\n" + "    FROM chat\r\n" + "    GROUP BY items_id\r\n"
+						+ ") AS C\r\n" + "ON a.items_id = C.items_id\r\n" + "left join  user as D\r\n"
+						+ "on a.user_id = d.user_id",
+				new ProductRowMapper());
 
-	@Override
-	public ProductDTO read(int items_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int update(ProductDTO product) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int delete(String items_id) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }
