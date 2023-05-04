@@ -1,5 +1,6 @@
 <%@page import="com.market.carrot.dto.FileDTO"%>
 <%@page import="com.market.carrot.dto.ProductDTO"%>
+<%@page import="java.io.Console"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -61,7 +62,7 @@
 </head>
 <body class="hoian-kr">
 	<%
-	List<ProductDTO> interestlist = (List<ProductDTO>) request.getAttribute("interestlist");
+	List<ProductDTO> productlist = (List<ProductDTO>) request.getAttribute("productlist");
 	List<FileDTO> file = (List<FileDTO>) request.getAttribute("file");
 	%>
 	<section id="content">
@@ -118,28 +119,23 @@
 		</nav>
 		<section class="cards-wrap">
 			<% 
-							int size = interestlist.size();
+							int size = productlist.size();
 							for(int i = 0; i < size; i++){
-								ProductDTO interest = interestlist.get(i);%>
+								ProductDTO product = productlist.get(i);%>
 			<article class="card-top ">
 				<a class="card-link " data-event-label="572387191"
 					href="/articles/572387191">
 					<div class="card-photo ">
+					
 						<img alt=""
 							src="<%=file.get(0).getStoreFilename()+file.get(0).getOriginalFilename()%>" />
 					</div>
 					<div class="card-desc">
-						<h2 class="card-title"><%=interest.getTitle() %></h2>
-						<div class="card-price "><%=interest.getPrice() %>원</div>
-
-				<%-- 		<div class="card-region-name"><%=interest.getSigun() %></div> --%>
+						<h2 class="card-title"><%=product.getTitle() %></h2>
+						<div class="card-price "><%=product.getPrice() %>원</div>
+						<div class="card-region-name"><%=product.getRegion()%></div>
 						<div class="card-counts">
-	<%-- 						<span>관심 : <%= interest.getLikeCount() %> </span> ∙ <span>채팅 : <%= interest.getChatCount() %></span> --%>
-
-						<div class="card-region-name"><%=interest.getRegion()%></div>
-						<div class="card-counts">
-							<span>관심 : 0 </span> ∙ <span>채팅 : <%= interest.getChatCount() %></span>
-
+							<span>관심 : 0 </span> ∙ <span>채팅 : <%= product.getChatCount() %></span>
 						</div>
 					</div>
 				</a>

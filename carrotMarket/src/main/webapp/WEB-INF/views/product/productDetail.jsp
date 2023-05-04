@@ -26,7 +26,7 @@
 List<FileDTO> imglist = (List<FileDTO>) request.getAttribute("imglist");
 ProductDTO dto = (ProductDTO) request.getAttribute("dto");
 int ChatCount = (Integer) request.getAttribute("ChatCount");
-//UserDTO user = (UserDTO) session.getAttribute("userdata");
+UserDTO user = (UserDTO) session.getAttribute("userdata");
 List<ProductDTO> listForSix = (List<ProductDTO>) request.getAttribute("listForSix");
 UserDTO userdto = (UserDTO) request.getAttribute("userdto");
 
@@ -75,9 +75,7 @@ UserDTO userdto = (UserDTO) request.getAttribute("userdto");
 					</div>
 				</div>
 
-<%-- 				<%
-				if (!user.getUser_id().equals(dto.getUser_id())) {
-				%> --%>
+				
 				<div id="article-profile-right">
 					<dl id="temperature-wrap">
 
@@ -121,7 +119,7 @@ UserDTO userdto = (UserDTO) request.getAttribute("userdto");
 			<p id="article-price"
 				style="font-size: 18px; font-weight: bold; color: black;">
 				<%=dto.getPrice()%></p>
-			<div id="article-detail"><%=dto.getContents()%></div>
+			<div id="article-detail"><%= dto.getContents().replaceAll("\n", "<br>") %></div>
 
 
 			<p id='article-counts'>
@@ -129,8 +127,19 @@ UserDTO userdto = (UserDTO) request.getAttribute("userdto");
 				<%=ChatCount%>
 				∙ 조회
 				<%=dto.getViews()%></p>
+					<%
+				if (user.getUser_id().equals(dto.getUser_id())) {
+				%>
+
+				<p>
+					<a href="/carrot/product/modify?items_id=<%= dto.getItems_id() %>">수정</a>
+					<a href="/carrot/product/delete?items_id=<%= dto.getItems_id() %>">삭제</a>
+				</p>
+
+				<% } %> 
 
 		</section>
+	
 
 	</article>
 

@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
 import com.market.carrot.dto.FileDTO;
 import com.market.carrot.dto.ProductDTO;
 import com.market.carrot.dto.UserDTO;
-
 import com.market.carrot.rowmapper.FileRowMapper;
 import com.market.carrot.rowmapper.ProductRowMapper;
 import com.market.carrot.rowmapper.UserRowMapper;
@@ -55,14 +54,19 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public int update(ProductDTO product) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "UPDATE items SET category=?, title=?, contents=?, price=?, updated_at=sysdate() WHERE items_id=?;";
+		return template.update(sql, product.getCategory(), product.getTitle(), product.getContents(), product.getPrice(), product.getItems_id());
 	}
 
+	public int readStorageCount(int items_id) {
+		String sql = "select count(*) from items_photo where items_id = ?";
+		return template.queryForObject(sql, Integer.class, items_id);
+	}
+	
 	@Override
 	public int delete(String items_id) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "DELETE FROM items where items_id=?";
+		return template.update(sql, items_id);
 	}
 
 	@Override

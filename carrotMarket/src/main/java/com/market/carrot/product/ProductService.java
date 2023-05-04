@@ -17,6 +17,8 @@ public interface ProductService {
 	ProductDTO read(int items_id);
 
 	int update(ProductDTO product);
+	
+	int update(ProductDTO product, List<FileDTO> deptfiledtolist);
 
 	int delete(String items_id);
 
@@ -33,6 +35,8 @@ public interface ProductService {
 	List<ProductDTO> interestlist();
 	
 	UserDTO readUserData(int items_id);
+	
+	int readStorageCount(int items_id);
 	
 
 

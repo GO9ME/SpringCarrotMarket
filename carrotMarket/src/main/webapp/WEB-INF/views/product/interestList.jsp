@@ -1,3 +1,5 @@
+<%@page import="com.market.carrot.dto.UserDTO"%>
+<%@page import="com.market.carrot.dto.FileDTO"%>
 <%@page import="com.market.carrot.dto.MyPageProductDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,14 +15,21 @@
 <body>
 	<%
 	List<MyPageProductDTO> interestproductlist = (List<MyPageProductDTO>) request.getAttribute("interestproductlist");
+	List<FileDTO> file = (List<FileDTO>) request.getAttribute("file");
+	UserDTO user = (UserDTO) session.getAttribute("userdata");
+	
 	%>
 	<div class="content">
 		<div class="media">
 			<div class="media-head">
-				<img src="/carrot/images/popular-sale-3.jpeg">
+				<%-- <img src="<%=file.get(0).getStoreFilename()+file.get(0).getOriginalFilename()%>"> --%>
+				<img
+							src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png"
+							alt=""
+							onerror="this.onerror=null; this.src='https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png';" />
 			</div>
 			<div class="media-body">
-				<h2>장동건님 관심품목</h2>
+				<h2><%=user.getName() %>님 관심품목</h2>
 			</div>
 		</div>
 		<div class="container">
@@ -67,11 +76,19 @@
 						<td class="subject"><a href="#"><%= interestProduct.getTitle() %></a></td>
 						<td><%= interestProduct.getCategory() %></td>
 						<td><%= interestProduct.getRegisterd_at() %></td>
-						<td class="txt_left"><span class="state1 green"><span
-								class="green"></span><%= interestProduct.getStatus_cd() %></span></td>
+						<td class="txt_left">
+						<%if(interestProduct.getStatus_cd().equals("예약중")){ %>
+						<span class="state1 green"><span class="green"></span><%= interestProduct.getStatus_cd() %></span></td>
+						<%} else if(interestProduct.getStatus_cd().equals("판매완료")) {%>
+						<span class="state1 gray"><span
+								class="gray"></span><%= interestProduct.getStatus_cd() %></span></td>
+						<%} else { %>
+						<span class="state1 orange"><span
+								class="orange"></span><%= interestProduct.getStatus_cd() %></span></td>
+						<%} %>
 						<td>
 							<div class="product-img">
-								<img alt="" src="/carrot/images/popular-sale-1.jpeg">
+								<img alt="" src="<%=file.get(0).getStoreFilename()+file.get(0).getOriginalFilename()%>">
 							</div>
 						</td>
 					</tr>

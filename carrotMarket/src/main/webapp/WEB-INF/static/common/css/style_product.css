@@ -1,5 +1,10 @@
-.product-register{ 
-	margin : 20px;
+h2 {
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.product-register {
+	margin: 20px;
 }
 
 .right-arrow-icon {
@@ -40,26 +45,6 @@
 	display: flex;
 }
 
-.dropzone, .thumbnail {
-	flex-basis: 50%;
-}
-
-.thumbnail {
-	display: flex;
-	justify-content: flex-start;
-}
-
-.dropzone {
-	border: 2px dashed #ccc;
-	padding: 25px;
-	text-align: center;
-	cursor: pointer;
-}
-
-.dropzone p {
-	font-size: 18px;
-}
-
 .inputfile {
 	display: none;
 }
@@ -97,6 +82,7 @@ label {
 	font-size: 14px;
 	color: #fff;
 }
+
 .search {
 	display: inline-flex;
 	flex-direction: row-reverse;
@@ -114,6 +100,7 @@ label {
 .search .ser-txt {
 	height: 100%;
 }
+
 .search .btn-ser {
 	flex-shrink: 0;
 	width: 40px;
@@ -123,4 +110,114 @@ label {
 	background: #fff
 		url(http://yellowpang.review/IWP/ITSM/user/images/itsm_icon/ic_search.png)
 		no-repeat center center;
+}
+
+.dragAndDropDiv {
+	border: 2px dashed #92AAB0;
+	width: 650px;
+	height: 200px;
+	color: #92AAB0;
+	text-align: center;
+	vertical-align: middle;
+	padding: 10px 0px 10px 10px;
+	font-size: 200%;
+	display: table-cell;
+}
+
+.progressBar {
+	width: 200px;
+	height: 22px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	overflow: hidden;
+	display: inline-block;
+	margin: 0px 10px 5px 5px;
+	vertical-align: top;
+}
+
+.progressBar div {
+	height: 100%;
+	color: #fff;
+	text-align: right;
+	line-height: 22px;
+	/* same as #progressBar height if we want text middle aligned */
+	width: 0;
+	background-color: #0ba1b5;
+	border-radius: 3px;
+}
+
+.statusbar {
+	border-top: 1px solid #A9CCD1;
+	min-height: 25px;
+	width: 99%;
+	padding: 10px 10px 0px 10px;
+	vertical-align: top;
+}
+
+.statusbar:nth-child(odd) {
+	background: #EBEFF0;
+}
+
+.filename {
+	display: inline-block;
+	vertical-align: top;
+	width: 250px;
+}
+
+.filesize {
+	display: inline-block;
+	vertical-align: top;
+	color: #30693D;
+	width: 100px;
+	margin-left: 10px;
+	margin-right: 5px;
+}
+
+.abort {
+	background-color: #A8352F;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	display: inline-block;
+	color: #fff;
+	font-family: arial;
+	font-size: 13px;
+	font-weight: normal;
+	padding: 4px 15px;
+	cursor: pointer;
+	vertical-align: top
+}
+
+.thumbnail-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+    
+    .thumbnail {
+        position: relative;
+        width: 150px;
+        height: 150px;
+    }
+    
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .delete-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        border: none;
+        background: transparent;
+        color: white;
+        cursor: pointer;
+    }
+.slide_img_size {
+	width: 150px;
+    height: 150px;
 }

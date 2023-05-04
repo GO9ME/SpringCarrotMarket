@@ -1,5 +1,6 @@
 package com.market.carrot.member.mypage;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +14,6 @@ public class MyPageUpdateServiceImpl implements MyPageUpdateService {
 	public int nicknameUpdate(String id, String nick) {
 		return dao.nicknameUpdate(id, nick);
 	}
+
 
 }
