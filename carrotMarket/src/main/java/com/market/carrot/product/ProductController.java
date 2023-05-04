@@ -124,5 +124,10 @@ public class ProductController {
 
 	}
 	
+	@RequestMapping("/product/delete")	
+	public String delete(String items_id) {
+		service.delete(items_id);
+		return "redirect:/product/list";
+	}
 
 }
