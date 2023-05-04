@@ -153,23 +153,23 @@
 					</button>
 				</div>
 				<div class="modal-body">
-				<form action="/carrot/member/update.nick">
+					<form action="/carrot/member/update.nick">
 						<div class="form-group">
-							<input type="hidden" name='id' value="<%=user.getUser_id()%>"> <label
-								for="old" class="col-form-label">기존 닉네임</label>
+							<input type="hidden" name='id' value="<%=user.getUser_id()%>">
+							<label for="old" class="col-form-label">기존 닉네임</label>
 							<div class="form-control"><%=user.getNickname()%></div>
 						</div>
 						<div class="form-group">
 							<label for="new-name" class="col-form-label">새로운 닉네임</label> <input
-								type="text" class="form-control" id="recipient-name" name="nick"
-								>
+								type="text" class="form-control" id="recipient-name" name="nick">
 						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">취소</button>
-						<button type="submit" class="btn btn-warning" onclick="alert('변경이 완료되었습니다.')">변경하기</button>
-					</div>
+					<button type="submit" class="btn btn-warning"
+						onclick="alert('변경이 완료되었습니다.')">변경하기</button>
+				</div>
 				</form>
 			</div>
 		</div>
@@ -288,24 +288,23 @@
 				<div class="modal-body">
 					<form>
 						<div class=" mb-3">
-							<select class="custom-select d-block w-100" id="root">
-								<option value="시/도">시/도</option>
-								<option>검색</option>
-								<option>카페</option>
+							<select class="custom-select d-block w-100" id='sido' 
+								required onchange="updateSecondCombo()">
+								<option value="">시/도</option>
+
 							</select>
+
 						</div>
 						<div class=" mb-3">
-							<select class="custom-select d-block w-100" id="root">
+							<select class="custom-select d-block w-100" id="sigun"
+								 required>
 								<option value="">시/군/구</option>
-								<option>검색</option>
-								<option>카페</option>
 							</select>
 						</div>
 						<div class=" mb-3">
-							<select class="custom-select d-block w-100" id="root">
-								<option value="">읍/면/동</option>
-								<option>검색</option>
-								<option>카페</option>
+							<select class="custom-select d-block w-100" id="dong"
+								required>
+								<option value="읍/면/동">읍/면/동</option>
 							</select>
 						</div>
 
@@ -388,7 +387,79 @@
 		}
 
 	</script>
+	<script src="https://code.jquery.com/jquery-latest.min.js"
+		type="application/javascript"></script>
+	<script type="application/javascript"
+		src="https://zelkun.tistory.com/attachment/cfile8.uf@99BB7A3D5D45C065343307.js"></script>
+	<script type="application/javascript">
+		
+		
+		
+		jQuery(document).ready(function () {
+			//sido option 추가
+			jQuery.each(hangjungdong.sido, function (idx, code) {
+				//append를 이용하여 option 하위에 붙여넣음
+				jQuery('#sido').append(fn_option(code.sido, code.codeNm));
+			});
 
+			//sido 변경시 시군구 option 추가
+			jQuery('#sido').change(function () {
+				jQuery('#sigun').show();
+				jQuery('#sigun').empty();
+				jQuery('#sigun').append(fn_option('', '시/군/구')); //
+				jQuery.each(hangjungdong.sigugun, function (idx, code) {
+					if (jQuery('#sido > option:selected').val() == code.sido)
+						jQuery('#sigun').append(fn_option(code.sigugun, code.codeNm));
+				});
+
+				//세종특별자치시 예외처리
+				//옵션값을 읽어 비교
+				if (jQuery('#sido option:selected').val() == '36') {
+					jQuery('#sigun').hide();
+					//index를 이용해서 selected 속성(attr)추가
+					//기본 선택 옵션이 최상위로 index 0을 가짐
+					jQuery('#sigugun option:eq(1)').attr('selected', 'selected');
+					//trigger를 이용해 change 실행
+					jQuery('#sigun').trigger('change');
+				}
+			});
+
+			//시군구 변경시 행정동 옵션추가
+			jQuery('#sigun').change(function () {
+				//option 제거
+				jQuery('#dong').empty();
+				jQuery.each(hangjungdong.dong, function (idx, code) {
+					if (jQuery('#sido > option:selected').val() == code.sido && jQuery('#sigun > option:selected').val() == code.sigugun)
+						jQuery('#dong').append(fn_option(code.dong, code.codeNm));
+				});
+				//option의 맨앞에 추가
+				jQuery('#dong').prepend(fn_option('', '읍/면/동'));
+				//option중 선택을 기본으로 선택
+				jQuery('#dong option:eq("")').attr('selected', 'selected');
+			});
+
+			jQuery('#dong').change(function () {
+				var sido = jQuery('#sido option:selected');
+				var sigugun = jQuery('#sigun option:selected');
+				var dong = jQuery('#dong option:selected');
+			
+				var sidoName = sido.text() ; // 시도 이름
+				var sigugunName = sigugun.text() ; // 시군구 이름
+				var dongName =  dong.text(); // 읍면동 이름
+				jQuery('#sidoName').val(sidoName);
+				jQuery('#sigugunName').val(sigugunName);
+				jQuery('#dongName').val(dongName);
+				
+			});
+		});
+
+		function fn_option(code, name) {
+			return '<option value="' + code + '">' + name + '</option>';
+		}
+	
+	
+	
+	</script>
 
 </body>
 </html>
