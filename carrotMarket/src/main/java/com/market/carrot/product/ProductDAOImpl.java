@@ -65,8 +65,8 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	@Override
 	public int delete(String items_id) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "DELETE FROM items where items_id=?";
+		return template.update(sql, items_id);
 	}
 
 	@Override

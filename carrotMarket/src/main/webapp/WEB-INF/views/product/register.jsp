@@ -88,7 +88,7 @@
 
 
 				<div class="text-center">
-					<button class="btn btn-light mt-3" id="send">완료</button>
+					<button class="btn btn-light mt-3" id="send" onclick="return validateForm();">완료</button>
 				</div>
 			</div>
 			</div>
