@@ -57,7 +57,9 @@
 						class="profile-user-img">
 				</div>
 				<!-- 아이디 -->
-				<div id="id"><%=user.getUser_id()%></div>
+				<div id="id">
+					<h5><%=user.getUser_id()%></h5>
+				</div>
 				<hr />
 				<!-- 닉네임 -->
 				<div class="input-group  input-group-sm mb-3">
@@ -151,22 +153,24 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form>
+				<form action="/carrot/member/update.nick">
 						<div class="form-group">
-							<label for="old" class="col-form-label">기존 닉네임</label>
+							<input type="hidden" name='id' value="<%=user.getUser_id()%>"> <label
+								for="old" class="col-form-label">기존 닉네임</label>
 							<div class="form-control"><%=user.getNickname()%></div>
 						</div>
 						<div class="form-group">
 							<label for="new-name" class="col-form-label">새로운 닉네임</label> <input
-								type="text" class="form-control" id="recipient-name">
+								type="text" class="form-control" id="recipient-name" name="nick"
+								>
 						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">취소</button>
-					<button type="button" class="btn btn-warning">변경하기</button>
-				</div>
+						<button type="submit" class="btn btn-warning" onclick="alert('변경이 완료되었습니다.')">변경하기</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -375,12 +379,14 @@
 	        	console.log(out);
 	        	if(out=='<%=user.getPassword()%>'){
 	        		alert('탈퇴가 완료되었습니다.');
-	        		window.location.href = "/carrot/member/delete?id=<%=user.getUser_id()%>";
-	        	}else{
+	        		window.location.href = "/carrot/member/delete?id=<%=user.getUser_id()%>
+		";
+				} else {
 					alert("비밀번호가 일치하지 않습니다.");
-	        	}
-	        }
+				}
+			}
 		}
+
 	</script>
 
 
