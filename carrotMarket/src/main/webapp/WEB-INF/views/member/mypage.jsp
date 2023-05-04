@@ -374,7 +374,7 @@
 	        	var out = prompt("비밀번호를 입력해주세요");
 	        	console.log(out);
 	        	if(out=='<%=user.getPassword()%>'){
-	        		console.log("<%=user.getUser_id()%>");
+	        		alert('탈퇴가 완료되었습니다.');
 	        		window.location.href = "/carrot/member/delete?id=<%=user.getUser_id()%>";
 	        	}else{
 					alert("비밀번호가 일치하지 않습니다.");
