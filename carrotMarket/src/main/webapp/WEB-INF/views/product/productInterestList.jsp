@@ -131,15 +131,15 @@
 					<div class="card-desc">
 						<h2 class="card-title"><%=interest.getTitle() %></h2>
 						<div class="card-price "><%=interest.getPrice() %>원</div>
-<<<<<<< HEAD
-						<div class="card-region-name"><%=interest.getRegion()%></div>
-						<div class="card-counts">
-							<span>관심 : 0 </span> ∙ <span>채팅 : <%= interest.getChatCount() %></span>
-=======
+
 				<%-- 		<div class="card-region-name"><%=interest.getSigun() %></div> --%>
 						<div class="card-counts">
 	<%-- 						<span>관심 : <%= interest.getLikeCount() %> </span> ∙ <span>채팅 : <%= interest.getChatCount() %></span> --%>
->>>>>>> 0db19207a039b71489d259b3663d51d5e4353833
+
+						<div class="card-region-name"><%=interest.getRegion()%></div>
+						<div class="card-counts">
+							<span>관심 : 0 </span> ∙ <span>채팅 : <%= interest.getChatCount() %></span>
+
 						</div>
 					</div>
 				</a>

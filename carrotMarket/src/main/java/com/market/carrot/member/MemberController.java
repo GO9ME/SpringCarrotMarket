@@ -7,11 +7,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.market.carrot.dto.UserDTO;
 import com.market.carrot.member.delete.DeleteService;
+import com.market.carrot.member.mypage.MyPageUpdateService;
 import com.market.carrot.member.signup.SignUpService;
 
-/*
-
-	회원가입
+/*	회원가입
 	회원수정
 	마이페이지
 	회원탈퇴
@@ -77,5 +76,17 @@ public class MemberController {
 		DS.delete(id);
 		return  "redirect:/logout";
 	}
+	
+	@Autowired
+	MyPageUpdateService US;
+	@RequestMapping("/member/update.nick")
+	public String update(String id, String nick) {
+		US.nicknameUpdate(id, nick);
+		return  "redirect:/member/mypage";
+	}
+	
+	
+	
+	
 	
 }
