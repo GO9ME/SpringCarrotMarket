@@ -1,3 +1,7 @@
+<%@page import="com.market.carrot.dto.UserDTO"%>
+<%@page import="com.market.carrot.dto.FileDTO"%>
+<%@page import="com.market.carrot.dto.MyPageBuyDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,17 +9,25 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="../common/header.jsp"></jsp:include>
-<link href="style_mypage_product.css" rel="stylesheet" type="text/css">
+<link href="/carrot/common/css/style_mypage_product.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<%
+	List<MyPageBuyDTO> buyproductlist = (List<MyPageBuyDTO>) request.getAttribute("buyproductlist");
+	List<FileDTO> file = (List<FileDTO>) request.getAttribute("file");
+	UserDTO user = (UserDTO) session.getAttribute("userdata");
+	%>
 	<div class="content">
 		<div class="media">
 			<div class="media-head">
-				<img src="/serverweb/images/jang1.jpg">
+				<%-- <img src="<%=file.get(0).getStoreFilename()+file.get(0).getOriginalFilename()%>"> --%>
+				<img
+							src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png"
+							alt=""
+							onerror="this.onerror=null; this.src='https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png';" />
 			</div>
 			<div class="media-body">
-				<h2>장동건님 구매내역</h2>
-
+				<h2><%=user.getName() %>님 구매내역</h2>
 			</div>
 		</div>
 		<div class="container">
@@ -53,50 +65,23 @@
 					</tr>
 				</thead>
 				<tbody>
+					<% 
+						int size = buyproductlist.size();
+						for(int i=0; i<size; i++){
+							MyPageBuyDTO buy = buyproductlist.get(i);
+					%>
 					<tr>
-						<td class="col_blue">IWP-SR00001</td>
-						<td class="subject"><a href="#">전자레인지 미개봉 판매</a></td>
-						<td>가전제품</td>
-						<td>01/18/2022 PM 1:15:17</td>
+						<td class="col_blue"><%= buy.getItems_id() %></td>
+						<td class="subject"><a href="#"><%= buy.getTitle() %></a></td>
+						<td><%= buy.getCategory() %></td>
+						<td><%= buy.getRegisterd_at() %></td>
 						<td>
 							<div class="product-img">
-								<img alt="" src="http://localhost:8088/carrotMarket/assets/images/popular-sale-8.jpeg">
+								<img alt="" src="<%=file.get(0).getStoreFilename()+file.get(0).getOriginalFilename()%>">
 							</div>
 						</td>
 					</tr>
-					<tr>
-						<td class="col_blue">INF-P00001</td>
-						<td class="subject"><a href="#">효자손 팝니다!!</a></td>
-						<td>생활용품</td>
-						<td>01/18/2022 PM 1:15:17</td>
-						<td>
-							<div class="product-img">
-								<img alt="" src="http://localhost:8088/carrotMarket/assets/images/popular-sale-8.jpeg">
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="col_blue">INF-P00001</td>
-						<td class="subject"><a href="#">스톤아일랜드 패딩 판매</a></td>
-						<td>의류</td>
-						<td>01/18/2022 PM 1:15:17</td>
-						<td>
-							<div class="product-img">
-								<img alt="" src="http://localhost:8088/carrotMarket/assets/images/popular-sale-8.jpeg">
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="col_blue">DP-C00001</td>
-						<td class="subject"><a href="#">모니터 판매합니다.</a></td>
-						<td>디지털용품</td>
-						<td>01/18/2022 PM 1:15:17</td>
-						<td>
-							<div class="product-img">
-								<img alt="" src="http://localhost:8088/carrotMarket/assets/images/popular-sale-8.jpeg">
-							</div>
-						</td>
-					</tr>
+					<%} %>
 				</tbody>
 			</table>
 		</div>

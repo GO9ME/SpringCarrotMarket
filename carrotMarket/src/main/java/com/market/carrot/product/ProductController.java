@@ -82,15 +82,38 @@ public class ProductController {
 		mav.setViewName("product/productList");
 		return mav;
 	}
-	
-	@RequestMapping("/product/interestlist") // 중고거래 -> 인기상품 인기상품 좋아요 높은순 정렬
-	public ModelAndView interestlist() {
+
+
+	@RequestMapping("/product/modify") // 상품수정 페이지 
+	public ModelAndView showModify(int items_id, HttpSession session) {
+		UserDTO user = (UserDTO) session.getAttribute("userdata");
+		List<FileDTO> imglist = service.readImgFile(items_id);
+		ProductDTO dto = service.readProduct(items_id);
 		ModelAndView mav = new ModelAndView();
-		List<ProductDTO> interestlist = service.interestlist();
-		mav.addObject("interestlist", interestlist);
-		mav.setViewName("product/productInterestList");
+		mav.addObject("dto", dto);
+		mav.addObject("user", user);
+		mav.addObject("imglist",imglist);
+		mav.setViewName("product/modify");
 		return mav;
 	}
+	
+	@RequestMapping("/product/modifyConfirm") // 상품수정 페이지 
+	public String update(ProductDTO product, HttpSession session) throws IllegalStateException, IOException {
+		List<MultipartFile> files = product.getFile();
+		String path = WebUtils.getRealPath(session.getServletContext(), "/WEB-INF/upload");
+		List<FileDTO> fileDtoList = fileuploadService.uploadFiles(files, path);
+		
+		System.out.println(product);
+		int count = service.readStorageCount(product.getItems_id()) + 1;
+		for (FileDTO fileDto : fileDtoList) {
+			fileDto.setImageFileno(count + "");
+			count++;
+		}
+		
+		service.update(product, fileDtoList);
+
+		return "redirect:/product/detail?items_id=" + product.getItems_id();
+
 
 	@RequestMapping("/product/modify") // 상품수정 페이지 
 	public ModelAndView showModify(int items_id, HttpSession session) {
@@ -129,5 +152,6 @@ public class ProductController {
 		service.delete(items_id);
 		return "redirect:/product/list";
 	}
+
 
 }

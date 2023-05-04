@@ -82,7 +82,7 @@ String phone = request.getParameter("phone1");
 					<label for="address">주소</label>
 					<div class="row">
 						<div class="col-md-4 mb-3">
-							<select class="custom-select d-block w-100" id='sido' name="sido"
+							<select class="custom-select d-block w-100" id='sido' 
 								required onchange="updateSecondCombo()">
 								<option value="">시/도</option>
 
@@ -91,17 +91,15 @@ String phone = request.getParameter("phone1");
 						</div>
 						<div class="col-md-3 mb-3">
 							<select class="custom-select d-block w-100" id="sigun"
-								name="sigun" required>
+								 required>
 								<option value="">시/군/구</option>
-
 							</select>
 							<div class="invalid-feedback"></div>
 						</div>
 						<div class="col-md-3 mb-3">
-							<select class="custom-select d-block w-100" id="dong" name="dong"
+							<select class="custom-select d-block w-100" id="dong"
 								required>
 								<option value="읍/면/동">읍/면/동</option>
-
 							</select>
 							<div class="invalid-feedback"></div>
 						</div>
@@ -110,6 +108,8 @@ String phone = request.getParameter("phone1");
 								value="인증">
 							<div class="invalid-feedback"></div>
 						</div>
+						<input type="hidden" id="sidoName"  name="sido"> <input type="hidden"
+							id="sigugunName" name="sigun"> <input type="hidden" id="dongName" name="dong">
 					</div>
 
 					<!-- 전화번호:인증받은 번호 넘겨주기(사용자 입력X) -->
@@ -129,8 +129,6 @@ String phone = request.getParameter("phone1");
 
 						<div class="warning"></div>
 					</div>
-
-
 
 					<hr class="mb-4">
 
@@ -159,6 +157,7 @@ String phone = request.getParameter("phone1");
 	<script type="application/javascript"
 		src="https://zelkun.tistory.com/attachment/cfile8.uf@99BB7A3D5D45C065343307.js"></script>
 	<script type="application/javascript">
+		
 		
 		jQuery(document).ready(function () {
 			//sido option 추가
@@ -207,6 +206,13 @@ String phone = request.getParameter("phone1");
 				var sido = jQuery('#sido option:selected');
 				var sigugun = jQuery('#sigun option:selected');
 				var dong = jQuery('#dong option:selected');
+			
+				var sidoName = sido.text() ; // 시도 이름
+				var sigugunName = sigugun.text() ; // 시군구 이름
+				var dongName =  dong.text(); // 읍면동 이름
+				jQuery('#sidoName').val(sidoName);
+				jQuery('#sigugunName').val(sigugunName);
+				jQuery('#dongName').val(dongName);
 				
 			});
 		});
@@ -214,6 +220,7 @@ String phone = request.getParameter("phone1");
 		function fn_option(code, name) {
 			return '<option value="' + code + '">' + name + '</option>';
 		}
+	
 	
 	</script>
 	<script>

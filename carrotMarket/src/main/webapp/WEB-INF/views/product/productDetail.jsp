@@ -130,10 +130,12 @@ UserDTO userdto = (UserDTO) request.getAttribute("userdto");
 					<%
 				if (user.getUser_id().equals(dto.getUser_id())) {
 				%>
+
 				<p>
 					<a href="/carrot/product/modify?items_id=<%= dto.getItems_id() %>">수정</a>
 					<a href="/carrot/product/delete?items_id=<%= dto.getItems_id() %>">삭제</a>
 				</p>
+
 				<% } %> 
 
 		</section>

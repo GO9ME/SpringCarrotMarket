@@ -1,3 +1,7 @@
+<%@page import="com.market.carrot.dto.UserDTO"%>
+<%@page import="com.market.carrot.dto.FileDTO"%>
+<%@page import="com.market.carrot.dto.MyPageSellDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,17 +9,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="style_mypage_product.css" rel="stylesheet" type="text/css">
+<link href="/carrot/common/css/style_mypage_product.css"
+	rel="stylesheet" type="text/css">
+<jsp:include page="../common/header.jsp"></jsp:include>
 </head>
 <body>
+	<%
+	List<MyPageSellDTO> sellproductlist = (List<MyPageSellDTO>) request.getAttribute("sellproductlist");
+	List<FileDTO> file = (List<FileDTO>) request.getAttribute("file");
+	UserDTO user = (UserDTO) session.getAttribute("userdata");
+	%>
 	<div class="content">
 		<div class="media">
 			<div class="media-head">
-				<img src="/serverweb/images/jang1.jpg">
+				<%-- <img src="<%=file.get(0).getStoreFilename()+file.get(0).getOriginalFilename()%>"> --%>
+				<img
+					src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png"
+					alt=""
+					onerror="this.onerror=null; this.src='https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png';" />
 			</div>
 			<div class="media-body">
-				<h2>장동건님 판매내역</h2>
-
+				<h2><%=user.getName() %>님 판매내역</h2>
 			</div>
 		</div>
 		<div class="container">
@@ -54,60 +68,49 @@
 					</tr>
 				</thead>
 				<tbody>
+					<%
+					int size = sellproductlist.size();
+					for (int i = 0; i < size; i++) {
+						MyPageSellDTO sell = sellproductlist.get(i);
+					%>
 					<tr>
-						<td class="col_blue">IWP-SR00001</td>
-						<td class="subject"><a href="#">전자레인지 미개봉 판매</a></td>
-						<td>가전제품</td>
-						<td>01/18/2022 PM 1:15:17</td>
-						<td class="txt_left"><span class="state1 green"><span
-								class="green"></span>예약중</span></td>
+						<td class="col_blue"><%=sell.getItems_id()%></td>
+						<td class="subject"><a href="#"><%=sell.getTitle()%></a></td>
+						<td><%=sell.getCategory()%></td>
+						<td><%=sell.getRegisterd_at()%></td>
+						<td class="txt_left">
+							<%
+							if (sell.getStatus_cd().equals("예약중")) {
+							%> <span
+							class="state1 green"><span class="green"></span><%=sell.getStatus_cd()%></span>
+						</td>
+						<%
+						} else if (sell.getStatus_cd().equals("판매완료")) {
+						%>
+						<span class="state1 gray"><span class="gray"></span><%=sell.getStatus_cd()%></span>
+						</td>
+						<%
+						} else {
+						%>
+						<span class="state1 orange"><span class="orange"></span><%=sell.getStatus_cd()%></span>
+						</td>
+						<%
+						}
+						%>
 						<td>
 							<div class="product-img">
-								<img alt="" src="/serverweb/images/bts.jpg">
+								<img alt=""
+									src="<%=file.get(0).getStoreFilename() + file.get(0).getOriginalFilename()%>">
 							</div>
 						</td>
 					</tr>
-					<tr>
-						<td class="col_blue">INF-P00001</td>
-						<td class="subject"><a href="#">효자손 팝니다!!</a></td>
-						<td>생활용품</td>
-						<td>01/18/2022 PM 1:15:17</td>
-						<td class="txt_left"><span class="state1 orange">판매중</span></td>
-						<td>
-							<div class="product-img">
-								<img alt="" src="/serverweb/images/bts1.jpg">
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="col_blue">INF-P00001</td>
-						<td class="subject"><a href="#">스톤아일랜드 패딩 판매</a></td>
-						<td>의류</td>
-						<td>01/18/2022 PM 1:15:17</td>
-						<td class="txt_left"><span class="state1 gray"><span
-								class="gray"></span>판매완료</span></td>
-						<td>
-							<div class="product-img">
-								<img alt="" src="/serverweb/images/bts2.jpg">
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="col_blue">DP-C00001</td>
-						<td class="subject"><a href="#">모니터 판매합니다.</a></td>
-						<td>디지털용품</td>
-						<td>01/18/2022 PM 1:15:17</td>
-						<td class="txt_left"><span class="state1 gray"><span
-								class="gray"></span>판매완료</span></td>
-						<td>
-							<div class="product-img">
-								<img alt="" src="/serverweb/images/bts.jpg">
-							</div>
-						</td>
-					</tr>
+					<%
+					}
+					%>
 				</tbody>
 			</table>
 		</div>
 	</div>
 </body>
+<jsp:include page="../common/footer.jsp"></jsp:include>
 </html>

@@ -19,6 +19,7 @@ $(document).ready(function () {
     }
   });
 
+
 // 파일 첨부 썸네일과 최대갯수제한
 var $fileInput = $("#files");
 var $thumbnails = $("#thumbnails");
@@ -52,13 +53,12 @@ $fileInput.on("change", function () {
 	  reader.readAsDataURL(file);
 	}
 });
+
   $thumbnails.on("click", ".delete-btn", function () {
 	  $(this).parent().remove();
   });
 
 
-
-  
 
   $thumbnails.on("click", ".close", function (e) {
     var $target = $(e.target);
