@@ -82,15 +82,7 @@ public class ProductController {
 		mav.setViewName("product/productList");
 		return mav;
 	}
-	
-	@RequestMapping("/product/interestlist") // 중고거래 -> 인기상품 인기상품 좋아요 높은순 정렬
-	public ModelAndView interestlist() {
-		ModelAndView mav = new ModelAndView();
-		List<ProductDTO> interestlist = service.interestlist();
-		mav.addObject("interestlist", interestlist);
-		mav.setViewName("product/productInterestList");
-		return mav;
-	}
+
 
 	@RequestMapping("/product/modify") // 상품수정 페이지 
 	public ModelAndView showModify(int items_id, HttpSession session) {

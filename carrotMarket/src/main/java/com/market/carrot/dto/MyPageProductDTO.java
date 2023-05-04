@@ -37,10 +37,6 @@ public class MyPageProductDTO {
 		this.nickname = nickname;
 	}
 
-
-
-
-
 	@Override
 	public String toString() {
 		return "MyPageProductDTO [interest_id=" + interest_id + ", items_id=" + items_id + ", user_id=" + user_id

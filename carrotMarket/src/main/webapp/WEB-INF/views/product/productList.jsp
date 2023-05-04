@@ -129,7 +129,7 @@
 					href="/carrot/product/detail?items_id=<%=product.getItems_id()%>">
 					<div class="card-photo ">
 						<img alt=""
-							src="/carrot/upload/<%=product.getStoreFilename()%>" />
+							src="/carrot/upload/<%=product.getStoreFilename()%>" style="height:100%"/>
 					</div>
 					<div class="card-desc">
 						<h2 class="card-title"><%=product.getTitle()%></h2>

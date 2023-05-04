@@ -113,13 +113,13 @@
 			</div>
 			<div class="card-body text-dark">
 				<div>
-					<h4>관심목록</h4>
+					<h4><a href="/carrot/mypage/interestproductlist">관심목록</a></h4>
 				</div>
 				<div>
-					<h4>판매내역</h4>
+					<h4><a href="/carrot/mypage/sellproductlist">판매내역</h4>
 				</div>
 				<div>
-					<h4>구매내역</h4>
+					<h4><a href="/carrot/mypage/buyproductlist">구매내역</h4>
 				</div>
 			</div>
 			<div class="card-header ">

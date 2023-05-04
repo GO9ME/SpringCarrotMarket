@@ -30,13 +30,14 @@ public class MyPageProductDAOImpl implements MyPageProductDAO {
 	public List<MyPageProductDTO> getInterestProduct(String id) {
 
 		return template.query(
-				"select t.interest_id, t.items_id, t.user_id, t1.TITLE, t1.CATEGORY, t1.registerd_at, t1.STATUS_CD, t2.imageFileno, t2.originalFilename, t2.storeFilename , t3.NICKNAME\r\n"
-						+ "" + "from interest t\r\n" + "left join items t1\r\n" + "on t.items_id = t1.items_id\r\n"
-						+ "left join items_photo t2\r\n" + "on t1.items_id = t2.items_id\r\n" + "left join user t3\r\n"
-						+ "on t.user_id = t3.user_id\r\n" + "where 1=1\r\n"
-						// + "and t.user_id =?\r\n"
-						+ "and t1.USE_AT = 'y'\r\n" + "order by t1.registerd_at desc \r\n" + ";",
-				//new Object[] { id },
+				"select t.interest_id, t.items_id, t.user_id, t1.TITLE, t1.CATEGORY, t1.registerd_at, t1.STATUS_CD, t2.imageFileno, t2.originalFilename, t2.storeFilename , t3.NICKNAME "
+						+ "" + "from interest t " + "left join items t1 " + "on t.items_id = t1.items_id "
+						+ "left join items_photo t2 " + "on t1.items_id = t2.items_id " + "left join user t3 "
+						+ "on t.user_id = t3.user_id " 
+						+ "where 1=1 "
+						+ "and t.user_id =? "
+						+ "and t1.USE_AT = 'y' " + "order by t1.registerd_at desc  ",
+				new Object[] { id },
 				new MyPageProductRowMapper());
 	}
 }

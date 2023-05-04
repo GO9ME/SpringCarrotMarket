@@ -11,7 +11,7 @@
 	<div class="content">
 		<div class="media">
 			<div class="media-head">
-				<img src="/serverweb/images/jang1.jpg">
+				<!-- <img src="/serverweb/images/jang1.jpg"> -->
 			</div>
 			<div class="media-body">
 				<h2>장동건님 ♥관심품목♥</h2>
