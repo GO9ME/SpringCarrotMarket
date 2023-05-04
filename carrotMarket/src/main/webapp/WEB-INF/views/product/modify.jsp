@@ -1,3 +1,6 @@
+<%@page import="com.market.carrot.dto.ProductDTO"%>
+<%@page import="com.market.carrot.dto.FileDTO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.market.carrot.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -14,31 +17,43 @@
 <body>
 	<%
 	UserDTO user = (UserDTO) session.getAttribute("userdata");
+	ProductDTO dto = (ProductDTO) request.getAttribute("dto");
+	List<FileDTO> imglist = (List<FileDTO>) request.getAttribute("imglist");
 	%>
 	<section class="product-register">
-		<form method="post" action="/carrot/product/post"
+		<form method="post" action="/carrot/product/modifyConfirm"
 			enctype="multipart/form-data">
 			<div class="container mt-3">
 				<div class="row">
 					<div class="col-lg-10 col-md-12 col-sm-12 mx-auto">
-						<h2>내 물건 팔기</h2>
+						<h2>상품 수정</h2>
 						<hr />
-						<input type="hidden" name="user_id" value="<%=user.getUser_id()%>">
+						<input type="hidden" name="user_id"
+							value="<%=user.getUser_id()%>">
 
 						<div class="mt-3">
 							<input type="file" class="input-lg" name="files" id="files"
 								placeholder="" multiple="multiple">
 						</div>
+						<%
+						for (int i = 0; i < imglist.size(); i++) {
+							FileDTO fdto = imglist.get(i);
+						%>
+						<img class="slide_img_size"
+							src="/carrot/upload/<%=fdto.getStoreFilename()%>" alt="" />
+						<%
+						}
+						%>
 						<div id="thumbnails" class="thumbnail-container mt-2"></div>
 
 
 
 						<input type="text" class="form-control mt-3" id="title"
-							name="title" placeholder="제목">
+							name="title" value="<%=dto.getTitle()%>">
 						<button type="button"
 							class="btn btn-sm btn-block text-left mt-3 category-btn"
 							data-toggle="modal" data-target="#categoryModal">
-							<span id="selectedCategory">카테고리 선택</span><i
+							<span id="selectedCategory"><%=dto.getCategory()%></span><i
 								class="fa-solid fa-chevron-right right-arrow-icon"></i>
 						</button>
 						<!-- 모달창 -->
@@ -75,23 +90,23 @@
 								</div>
 							</div>
 						</div>
-					
 
-				<input type="hidden" id="categoryInput" name="category"> <input
-					type="text" class="form-control mt-3" id="price" name="price"
-					placeholder="￦ 가격(선택사항)">
-				<textarea class="form-control mt-3" id="content" name="contents"
-					placeholder="xx동에 올릴 게시글 내용을 작성해주세요(가품 및 판매금지 물품은 게시가 제한될 수 있어요.)"
-					rows="8"></textarea>
-				<input type="hidden" name="status_cd" value="1"> <input
-					type="hidden" name="use_at" value="1">
+						<input type="hidden" id="categoryInput" name="category"
+							value="<%=dto.getCategory()%>"> <input type="hidden"
+							name="items_id" value="<%=request.getParameter("items_id")%>">
+						<input type="text" class="form-control mt-3" id="price"
+							name="price" value="<%=dto.getPrice()%>">
+						<textarea class="form-control mt-3" id="content" name="contents"
+							placeholder="" rows="8"><%=dto.getContents()%></textarea>
+						<input type="hidden" name="status_cd" value="1"> <input
+							type="hidden" name="use_at" value="1">
 
 
-				<div class="text-center">
-					<button class="btn btn-light mt-3" id="send">완료</button>
+						<div class="text-center">
+							<button class="btn btn-light mt-3" id="send">완료</button>
+						</div>
+					</div>
 				</div>
-			</div>
-			</div>
 			</div>
 		</form>
 		<!-- 모달창 -->

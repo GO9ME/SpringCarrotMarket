@@ -32,9 +32,16 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public int update(ProductDTO product) {
+		return dao.update(product);
+	}
+	
+	@Override
+	public int update(ProductDTO product, List<FileDTO> deptfiledtolist) {
+		dao.update(product);
+		// 파일 업데이트 기능 미구현
+		// dao.updateFile(deptfiledtolist);
 		return 0;
 	}
-
 
 	@Override
 	public int delete(String items_id) {
@@ -44,7 +51,6 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public int insert(ProductDTO product, List<FileDTO> deptfiledtolist) {
 		dao.insert(product);
-
 		dao.insertFile(deptfiledtolist);
 		return 0;
 	}
@@ -92,6 +98,11 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return dao.readUserData(items_id);
 
+	}
+
+	@Override
+	public int readStorageCount(int items_id) {
+		return dao.readStorageCount(items_id);
 	}
 
 }
