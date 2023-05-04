@@ -1,6 +1,9 @@
 package com.market.carrot.member;
 
-import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Controller;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,21 +44,21 @@ public class MemberController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/member/singup3_idcheck",produces = "application/text;charset=utf-8")
-    @ResponseBody
-    public String ajaxtest(String id) {
-        String msg="";
-        if(service.checkid(id)==0) {
-            msg = "사용가능한 아이디입니다.";
-        }else {
-            msg = "다른 아이디를 사용해주세요";
-        }
-        return msg;
-    }
+	@RequestMapping(value = "/member/singup3_idcheck", produces = "application/text;charset=utf-8")
+	@ResponseBody
+	public String ajaxtest(String id) {
+		String msg = "";
+		if (service.checkid(id) == 0) {
+			msg = "사용가능한 아이디입니다.";
+		} else {
+			msg = "다른 아이디를 사용해주세요";
+		}
+		return msg;
+	}
 
-	
 	@Autowired
 	SignUpService service;
+
 	@RequestMapping("/member/signup4")
 	public String signup(UserDTO user) {
 		service.signUp(user);
@@ -68,25 +71,29 @@ public class MemberController {
 		mav.setViewName("member/mypage");
 		return mav;
 	}
-	
+
 	@Autowired
 	DeleteService DS;
+
 	@RequestMapping("/member/delete")
 	public String delete(String id) {
 		DS.delete(id);
-		return  "redirect:/logout";
+		return "redirect:/logout";
 	}
-	
+
 	@Autowired
 	MyPageUpdateService US;
+
 	@RequestMapping("/member/update.nick")
-	public String update(String id, String nick) {
-		US.nicknameUpdate(id, nick);
-		return  "redirect:/member/mypage";
+	public String update(String id, String nick, HttpSession session) {
+		int result = US.nicknameUpdate(id, nick);
+		UserDTO dto = (UserDTO) session.getAttribute("userdata");
+		if (result > 0) {
+			dto.setNickname(nick);
+			session.setAttribute("userdata", dto);
+		}
+
+		return "redirect:/member/mypage";
 	}
-	
-	
-	
-	
-	
+
 }
