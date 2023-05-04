@@ -129,9 +129,9 @@
 					<div class="card-desc">
 						<h2 class="card-title"><%=interest.getTitle() %></h2>
 						<div class="card-price "><%=interest.getPrice() %>원</div>
-						<div class="card-region-name"><%=interest.getSigun() %></div>
+				<%-- 		<div class="card-region-name"><%=interest.getSigun() %></div> --%>
 						<div class="card-counts">
-							<span>관심 : <%= interest.getLikeCount() %> </span> ∙ <span>채팅 : <%= interest.getChatCount() %></span>
+	<%-- 						<span>관심 : <%= interest.getLikeCount() %> </span> ∙ <span>채팅 : <%= interest.getChatCount() %></span> --%>
 						</div>
 					</div>
 				</a>
