@@ -24,13 +24,16 @@
 ---
 **ERD**
 ERD cloud
+
 https://www.erdcloud.com/d/KCra2uyQxBbz5oofk
 ![image](https://user-images.githubusercontent.com/49851554/236753186-1515e964-6786-4bb3-9ad0-5e1133f3e871.png)
 
 
 SQL 쿼리문
+
 https://docs.google.com/document/d/1ZF61fqBp5Ry2Iqh6-tBLwkOx7QJdKIeHkpDFuSPHvUU/edit?usp=sharing
 
 ---
 **참고 자료**
+
 https://docs.google.com/presentation/d/1f173qljCkyo0zuq0mUj2rPu3Va-Dbl88Doek_vljnAg/edit?usp=sharing
